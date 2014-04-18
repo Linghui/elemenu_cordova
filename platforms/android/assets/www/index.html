@@ -24,49 +24,64 @@ under the License.
 		<!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
 		<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
 		<link rel="stylesheet" type="text/css" href="css/index.css" />
+
+		<link rel="stylesheet" type="text/css" href="css/icons.css" />
+		<link rel="stylesheet" type="text/css" href="css/main.css"  />
+		<link rel="stylesheet" type="text/css" href="css/appframework.css"  />
+		<link rel="stylesheet" type="text/css" href="css/lists.css"  />
+		<link rel="stylesheet" type="text/css" href="css/forms.css"  />
+		<link rel="stylesheet" type="text/css" href="css/buttons.css"  />
+		<link rel="stylesheet" type="text/css" href="css/badges.css"  />
+		<link rel="stylesheet" type="text/css" href="css/grid.css"  />
+
+		<link rel="stylesheet" type="text/css" href="css/android.css"  />
+		<link rel="stylesheet" type="text/css" href="css/win8.css"  />
+		<link rel="stylesheet" type="text/css" href="css/bb.css"  />
+		<link rel="stylesheet" type="text/css" href="css/ios.css"  />
+		<link rel="stylesheet" type="text/css" href="css/ios7.css"  />
+		<link rel="stylesheet" type="text/css" href="css/tizen.css"  />
+
+		<link rel="stylesheet" type="text/css" href="plugins/css/af.actionsheet.css"  />
+		<link rel="stylesheet" type="text/css" href="plugins/css/af.popup.css"  />
+		<link rel="stylesheet" type="text/css" href="plugins/css/af.scroller.css"  />
+		<link rel="stylesheet" type="text/css" href="plugins/css/af.selectBox.css"  />
+
 	</head>
-	<body onload="onBodyLoad()" style="background: url(img/ScanditSDKDemo-Splash.png) no-repeat;background-size: 100%;background-color: #000000">
+	<body >
+
+		<div id="afui" class="ios">
+			<div id="main" class="panel" selected="true" >
+				<header>
+					<h1>我的菜单</h1>
+					<a id="scan" onclick="scan()" style="float: right;">扫描</a>
+				</header>
+			</div>
+
+		</div>
+
+		<script type="text/javascript" charset="utf-8" src="./appframework.js"></script>
+		<script type="text/javascript" charset="utf-8" src="./plugins/af.actionsheet.js"></script>
+		<script type="text/javascript" charset="utf-8" src="./plugins/af.css3animate.js"></script>
+		<script type="text/javascript" charset="utf-8" src="./plugins/af.passwordBox.js"></script>
+		<script type="text/javascript" charset="utf-8" src="./plugins/af.scroller.js"></script>
+		<script type="text/javascript" charset="utf-8" src="./plugins/af.selectBox.js"></script>
+		<script type="text/javascript" charset="utf-8" src="./plugins/af.touchEvents.js"></script>
+		<script type="text/javascript" charset="utf-8" src="./plugins/af.touchLayer.js"></script>
+		<script type="text/javascript" charset="utf-8" src="./plugins/af.popup.js"></script>
+
+		<script type="text/javascript" charset="utf-8" src="./ui/appframework.ui.js"></script>
+		<script type="text/javascript" charset="utf-8" src="./ui/transitions/fade.js"></script>
+		<script type="text/javascript" charset="utf-8" src="./ui/transitions/flip.js"></script>
+		<script type="text/javascript" charset="utf-8" src="./ui/transitions/pop.js"></script>
+		<script type="text/javascript" charset="utf-8" src="./ui/transitions/slide.js"></script>
+		<script type="text/javascript" charset="utf-8" src="./ui/transitions/slideDown.js"></script>
+		<script type="text/javascript" charset="utf-8" src="./ui/transitions/slideUp.js"></script>
+		<script type="text/javascript" charset="utf-8" src="./plugins/af.slidemenu.js"></script>
 		<script type="text/javascript" src="cordova.js"></script>
 		<script type="text/javascript" src="js/index.js"></script>
+		<script type="text/javascript" src="js/scan.js"></script>
 		<script type="text/javascript">
-			function onBodyLoad() {
-				document.addEventListener("deviceready", onDeviceReady, false);
-			}
-
-			function success(resultArray) {
-
-				alert("Scanned " + resultArray[0] + " code: " + resultArray[1]);
-
-				// NOTE: Scandit SDK Phonegap Plugin Versions 1.* for iOS report
-				// the scanning result as a concatenated string.
-				// Starting with version 2.0.0, the Scandit SDK Phonegap
-				// Plugin for iOS reports the result as an array
-				// identical to the way the Scandit SDK plugin for Android reports results.
-
-				// If you are running the Scandit SDK Phonegap Plugin Version 1.* for iOS,
-				// use the following approach to generate a result array from the string result returned:
-				// resultArray = result.split("|");
-			}
-
-			function failure(error) {
-				alert("Failed: " + error);
-			}
-
-			function scan() {
-				// See below for all available options.
-				cordova.exec(success, failure, "ScanditSDK", "scan", ["MzySjscTEeOXwyMUN6u+RbQVe522gOFWNWgtMC0c4nM", {
-					"beep" : true,
-					"1DScanning" : true,
-					"2DScanning" : true
-				}]);
-			}
-
-
 			app.initialize();
 		</script>
-
-		<div align="center" valign="center">
-			<input type="button" value="scan" onclick="scan()" style="margin-top: 230px; width: 100px; height: 30px; font-size: 1em"/>
-		</div>
 	</body>
 </html>
