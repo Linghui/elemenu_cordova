@@ -26,12 +26,53 @@ var app = {
 	// Bind any events that are required on startup. Common events are:
 	// 'load', 'deviceready', 'offline', and 'online'.
 	bindEvents : function() {
+		document.addEventListener("deviceready", onDeviceReady, false);
 	}
 };
+function onDeviceReady() {
+	console.log('onDeviceReady');
+	// 注册回退按钮事件监听器
+
+	document.addEventListener("backbutton", onBackKeyDown, false);
+	//返回键
+}
+
+var popOn = 0;
+
+function onBackKeyDown() {
+	console.log('onBackKeyDown');
+	if (showing_page == 0) {
+		// navigator.app.exitApp();
+
+		if (popOn == 0) {
+			popOn = 1;
+			$('#afui').popup({
+				title : "退出",
+				message : "确认退出?",
+				cancelText : "取消",
+				cancelCallback : function() {
+					popOn = 0;
+				},
+				doneText : "确定",
+				doneCallback : function() {
+					navigator.app.exitApp();
+				}
+			});
+		}
+
+	} else if (showing_page == 1) {
+		back();
+	} else {
+		back();
+	}
+}
+
+var showing_page = 0;
 
 function index_load_list() {
 	console.log('index_load_list');
-	
+	showing_page = 0;
+
 	$("#afui").get(0).className = "bb";
 
 	var fandian_list = data_get_fandian_list();
@@ -42,7 +83,7 @@ function index_load_list() {
 		var list_content = '<ul id="fandian_list" class="list">';
 		for (var i = 0; i < fandian_list.length; i++) {
 			console.log("fandian_list name " + fandian_list[i].name);
-			list_content += "<li><a class='button' onclick='show_detail(" + fandian_list[i].fandian_id + ")'>";
+			list_content += "<li class='list_container'><a class='list' onclick='show_detail(" + fandian_list[i].fandian_id + ")'>";
 			list_content += fandian_list[i].name;
 			list_content += "</a></li>";
 		}
@@ -54,7 +95,7 @@ function index_load_list() {
 	} else {
 		console.log('index_load_list null_page');
 
-		$('#main').html('<div width="100%" style="text-align:center"> <img class="center wucdbj" src="img/wucdbj.png"/> <h1>您没有录入任何菜单</h1> <a id="scan" onclick="scan()" class="button">开始扫描</a> </div>');
+		$('#main').html('<div width="100%" height="100%" style="text-align:center"> <img class="wucdbj" src="img/wucdbj.png"/> <h2 class="tip">您没有录入任何菜单</h2> <input class="start_btn" type="button" value="开始扫描" onclick="scan()" /> </div>');
 
 	}
 
@@ -62,6 +103,7 @@ function index_load_list() {
 
 function show_detail(fandian_id) {
 	console.log("show_detail");
+	showing_page = 1;
 	var fandian_info = data_get_fandian_by_id(fandian_id);
 
 	$('#fandian_name').html(fandian_info.name);
@@ -79,7 +121,7 @@ function show_detail(fandian_id) {
 
 	$('#food_list').html(content);
 
-	$.ui.loadContent('detail', false, false, 'slide')
+	$.ui.loadContent('detail', false, false, 'slide');
 }
 
 function add_test() {
@@ -103,5 +145,10 @@ function add_test() {
 
 	data_insert(fandian_info_obj);
 
+}
+
+function back() {
+
+	$.ui.loadContent('main', false, false, 'slide');
 }
 
