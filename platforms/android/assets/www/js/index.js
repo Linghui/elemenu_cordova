@@ -35,22 +35,24 @@ function index_load_list() {
 	if (fandian_list && fandian_list.length > 0) {
 		console.log('index_load_list list_page ' + fandian_list.length);
 		console.log('index_load_list list_page ' + JSON.stringify(fandian_list));
-		$.ui.loadContent('list_page', false, false, false)
 
-		var list_content;
+		var list_content = '<ul id="fandian_list" class="list">';
 		for (var i = 0; i < fandian_list.length; i++) {
 			console.log("fandian_list name " + fandian_list[i].name);
 			list_content += "<li><a class='button'>";
 			list_content += fandian_list[i].name;
 			list_content += "</a></li>";
 		}
+		list_content += "</ul>";
 
-		console.log("list_content " + list_content);
-		$('#fandian_list').html(list_content);
+		console.log('list_content ' + list_content);
+		$('#main').html(list_content);
 
 	} else {
 		console.log('index_load_list null_page');
-		$.ui.loadContent('null_page', false, false, false)
+
+		$('#main').html('<div width="100%" style="text-align:center"> <img class="center wucdbj" src="img/wucdbj.png"/> <h1>您没有录入任何菜单</h1> <a id="scan" onclick="scan()" class="button">开始扫描</a> </div>');
+
 	}
 
 }
