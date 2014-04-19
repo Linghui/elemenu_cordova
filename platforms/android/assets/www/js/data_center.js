@@ -57,3 +57,16 @@ function data_clear() {
 	storage.clear();
 }
 
+function data_get_fandian_by_id(fandian_id) {
+	var fandian_list = data_get_fandian_list();
+
+	for (var i = 0; i < fandian_list.length; i++) {
+		console.log('fandian_list[i].fandian_id ' + fandian_list[i].fandian_id);
+		if (fandian_list[i].fandian_id == fandian_id) {
+			return fandian_list[i];
+		}
+	}
+
+	return null;
+}
+

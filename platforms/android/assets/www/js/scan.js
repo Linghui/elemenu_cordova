@@ -33,7 +33,7 @@ function success(resultArray) {
 
 				$.ui.hideMask();
 			},
-			error : function() {
+			error : function(data) {
 				console.log('error' + data);
 				$.ui.hideMask();
 			}
