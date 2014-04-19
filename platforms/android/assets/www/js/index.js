@@ -17,26 +17,41 @@
  * under the License.
  */
 var app = {
-    // Application Constructor
-    initialize: function() {
-        this.bindEvents();
-    },
-    // Bind Event Listeners
-    //
-    // Bind any events that are required on startup. Common events are:
-    // 'load', 'deviceready', 'offline', and 'online'.
-    bindEvents: function() {
-        document.addEventListener('deviceready', this.onDeviceReady, false);
-    },
-    // deviceready Event Handler
-    //
-    // The scope of 'this' is the event. In order to call the 'receivedEvent'
-    // function, we must explicity call 'app.receivedEvent(...);'
-    onDeviceReady: function() {
-        app.receivedEvent('deviceready');
-    },
-    // Update DOM on a Received Event
-    receivedEvent: function(id) {
-        console.log('Received Event: ' + id);
-    }
+	// Application Constructor
+	initialize : function() {
+		this.bindEvents();
+	},
+	// Bind Event Listeners
+	//
+	// Bind any events that are required on startup. Common events are:
+	// 'load', 'deviceready', 'offline', and 'online'.
+	bindEvents : function() {
+	}
 };
+
+function index_load_list() {
+	console.log('index_load_list');
+	var fandian_list = data_get_fandian_list();
+	if (fandian_list && fandian_list.length > 0) {
+		console.log('index_load_list list_page ' + fandian_list.length);
+		console.log('index_load_list list_page ' + JSON.stringify(fandian_list));
+		$.ui.loadContent('list_page', false, false, false)
+
+		var list_content;
+		for (var i = 0; i < fandian_list.length; i++) {
+			console.log("fandian_list name " + fandian_list[i].name);
+			list_content += "<li><a class='button'>";
+			list_content += fandian_list[i].name;
+			list_content += "</a></li>";
+		}
+
+		console.log("list_content " + list_content);
+		$('#fandian_list').html(list_content);
+
+	} else {
+		console.log('index_load_list null_page');
+		$.ui.loadContent('null_page', false, false, false)
+	}
+
+}
+
