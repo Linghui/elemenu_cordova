@@ -56,7 +56,9 @@ under the License.
 		<div id="afui" >
 			<div id="main" class="panel" selected="true" data-load='index_load_list' data-header='main_header' data-footer='test_footer'>
 				<!-- <div id="main" class="panel" selected="true" data-load='index_load_list' data-header='main_header' > -->
+				<div id = "main_c">
 
+				</div>
 			</div>
 			<header id='main_header'>
 				<h1>我的菜单</h1>
@@ -68,46 +70,73 @@ under the License.
 				<a onclick="add_test()">添加测试数据</a>
 				<a onclick="data_clear()" href="#test">清除测试数据</a>
 				<a onclick="onBackKeyDown()">退出</a>
-				</footer>
+			</footer>
 
-				<div id="detail" class="panel" >
-
+			<div id="detail" class="panel" >
+				<script></script>
 				<header id='detail_header'>
-				<a class="left_back_btn" onclick="back()">主页</a>
-				<h1 id='fandian_name'>饭店名字</h1>
+					<a class="left_back_btn" onclick="back()">主页</a>
+					<h1 id='fandian_name'>饭店名字</h1>
 				</header>
 				<ul id='food_list' class="list">
 
 				</ul>
-				</div>
+				<footer class='order_bar'>
+					<img class='round' src="img/hongy.png" />
+					<span id='order_number' class="order_number">0</span>
+					<span id='total_price' class="total_price">¥0</span>
+					<a href="tel:10086" class="cellphone" id='phone'>10086</a>
+				</footer>
+				
+			</div>
 
-				</div>
-				</div>
+		</div>
+		</div>
 
-				<script type="text/javascript" charset="utf-8" src="./appframework.js"></script>
-				<script type="text/javascript" charset="utf-8" src="./plugins/af.actionsheet.js"></script>
-				<script type="text/javascript" charset="utf-8" src="./plugins/af.css3animate.js"></script>
-				<script type="text/javascript" charset="utf-8" src="./plugins/af.passwordBox.js"></script>
-				<script type="text/javascript" charset="utf-8" src="./plugins/af.scroller.js"></script>
-				<script type="text/javascript" charset="utf-8" src="./plugins/af.selectBox.js"></script>
-				<script type="text/javascript" charset="utf-8" src="./plugins/af.touchEvents.js"></script>
-				<script type="text/javascript" charset="utf-8" src="./plugins/af.touchLayer.js"></script>
-				<script type="text/javascript" charset="utf-8" src="./plugins/af.popup.js"></script>
+		<script type="text/javascript" charset="utf-8" src="./appframework.js"></script>
+		<script type="text/javascript" charset="utf-8" src="./plugins/af.actionsheet.js"></script>
+		<script type="text/javascript" charset="utf-8" src="./plugins/af.css3animate.js"></script>
+		<script type="text/javascript" charset="utf-8" src="./plugins/af.passwordBox.js"></script>
+		<script type="text/javascript" charset="utf-8" src="./plugins/af.scroller.js"></script>
+		<script type="text/javascript" charset="utf-8" src="./plugins/af.selectBox.js"></script>
+		<script type="text/javascript" charset="utf-8" src="./plugins/af.touchEvents.js"></script>
+		<script type="text/javascript" charset="utf-8" src="./plugins/af.touchLayer.js"></script>
+		<script type="text/javascript" charset="utf-8" src="./plugins/af.popup.js"></script>
 
-				<script type="text/javascript" charset="utf-8" src="./ui/appframework.ui.js"></script>
-				<script type="text/javascript" charset="utf-8" src="./ui/transitions/fade.js"></script>
-				<script type="text/javascript" charset="utf-8" src="./ui/transitions/flip.js"></script>
-				<script type="text/javascript" charset="utf-8" src="./ui/transitions/pop.js"></script>
-				<script type="text/javascript" charset="utf-8" src="./ui/transitions/slide.js"></script>
-				<script type="text/javascript" charset="utf-8" src="./ui/transitions/slideDown.js"></script>
-				<script type="text/javascript" charset="utf-8" src="./ui/transitions/slideUp.js"></script>
-				<script type="text/javascript" charset="utf-8" src="./plugins/af.slidemenu.js"></script>
-				<script type="text/javascript" src="cordova.js"></script>
-				<script type="text/javascript" src="js/index.js"></script>
-				<script type="text/javascript" src="js/data_center.js"></script>
-				<script type="text/javascript" src="js/scan.js"></script>
-				<script type="text/javascript">
-app.initialize();
-				</script>
+		<script type="text/javascript" charset="utf-8" src="./ui/appframework.ui.js"></script>
+		<script type="text/javascript" charset="utf-8" src="./ui/transitions/fade.js"></script>
+		<script type="text/javascript" charset="utf-8" src="./ui/transitions/flip.js"></script>
+		<script type="text/javascript" charset="utf-8" src="./ui/transitions/pop.js"></script>
+		<script type="text/javascript" charset="utf-8" src="./ui/transitions/slide.js"></script>
+		<script type="text/javascript" charset="utf-8" src="./ui/transitions/slideDown.js"></script>
+		<script type="text/javascript" charset="utf-8" src="./ui/transitions/slideUp.js"></script>
+		<script type="text/javascript" charset="utf-8" src="./plugins/af.slidemenu.js"></script>
+		<script type="text/javascript" src="cordova.js"></script>
+		<script type="text/javascript" src="js/index.js"></script>
+		<script type="text/javascript" src="js/data_center.js"></script>
+		<script type="text/javascript" src="js/scan.js"></script>
+		<script>
+			function loadedPanel(what) {
+				//We are going to set the badge as the number of li elements inside the target
+				$.ui.updateBadge("#aflink", $("#af").find("li").length);
+			}
+
+			function unloadedPanel(what) {
+				console.log("unloaded " + what.id);
+			}
+
+			if (!((window.DocumentTouch && document instanceof DocumentTouch) || 'ontouchstart' in window)) {
+				var script = document.createElement("script");
+				script.src = "plugins/af.desktopBrowsers.js";
+				var tag = $("head").append(script);
+				//$.os.desktop=true;
+			}
+
+			//  $.feat.nativeTouchScroll=true;
+
+		</script>
+		<script type="text/javascript">
+			app.initialize();
+		</script>
 	</body>
 </html>

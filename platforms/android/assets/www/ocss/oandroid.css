@@ -93,7 +93,7 @@
 	font-size: 15px;
 	position: absolute;
 	margin-left: -53px;
-	margin-top: 5px;
+	margin-top: 6px;
 	width: 50px;
 	text-align: center;
 	color: #DA1E9E;
@@ -121,10 +121,10 @@
 	font-weight: bold;
 	width: inherit;
 	text-align: left;
-	padding-top: 0px;
+	padding-top: 6px;
 }
 #afui.android .food_xin {
-	padding-top: 6px;
+	padding-top: 12px;
 }
 #afui.android .food_zan {
 }
@@ -133,7 +133,7 @@
 	font-size: 15px;
 	position: absolute;
 	margin-left: -53px;
-	margin-top: 10px;
+	margin-top: 18px;
 	width: 50px;
 	text-align: center;
 	color: #DA1E9E;
@@ -195,7 +195,7 @@
 
 #afui.android .cellphone {
 	position: absolute;
-	top: 20px !important;
+	top: 16px !important;
 	right: 50px;
 	width: 200px !important;
 	background: #4CD60B !important;

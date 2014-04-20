@@ -75,7 +75,7 @@ function index_load_list() {
 
 	// $("#afui").get(0).className = "ios7";
 	// $("#afui").get(0).className = "android";
-	// $.ui.toggleNavMenu()
+	$.ui.toggleNavMenu()
 
 	var fandian_list = data_get_fandian_list();
 	if (fandian_list && fandian_list.length > 0) {
@@ -85,23 +85,23 @@ function index_load_list() {
 		var list_content = '<ul id="fandian_list" class="list">';
 		for (var i = 0; i < fandian_list.length; i++) {
 			console.log("fandian_list name " + fandian_list[i].name);
-			list_content += getLi(fandian_list[i].fandian_id, fandian_list[i].name, fandian_list[i].like);
+			list_content += getFandianLi(fandian_list[i].fandian_id, fandian_list[i].name, fandian_list[i].like);
 		}
 		list_content += "</ul>";
 
 		console.log('list_content ' + list_content);
-		$('#main').html(list_content);
+		$('#main_c').html(list_content);
 
 	} else {
 		console.log('index_load_list null_page');
 
-		$('#main').html('<div width="100%" height="100%" style="text-align:center"> <img class="wucdbj" src="img/wucdbj.png"/> <h2 class="tip">您没有录入任何菜单</h2> <input class="start_btn" type="button" value="开始扫描" onclick="scan()" /> </div>');
+		$('#main_c').html('<div width="100%" height="100%" style="text-align:center"> <img class="wucdbj" src="img/wucdbj.png"/> <h2 class="tip">您没有录入任何菜单</h2> <input class="start_btn" type="button" value="开始扫描" onclick="scan()" /> </div>');
 
 	}
 
 }
 
-function getLi(id, name, like) {
+function getFandianLi(id, name, like) {
 
 	var li_content = "";
 	li_content += "<li class='fandian_li' onclick='show_detail(" + id + ")' >";
@@ -124,8 +124,14 @@ function getLi(id, name, like) {
 	return li_content;
 }
 
+var order_number = 0;
+var order_price = 0;
+
 function show_detail(fandian_id) {
 	console.log("show_detail");
+	$('#scrollDiv').scroller({
+		useJsScroll : true
+	});
 	showing_page = 1;
 	var fandian_info = data_get_fandian_by_id(fandian_id);
 
@@ -136,38 +142,80 @@ function show_detail(fandian_id) {
 
 	var content = "";
 	for (var index = 0; index < menuObj.length; index++) {
-		content += "<li>";
-		content += menuObj[index].name;
-		content += menuObj[index].price;
-		content += "</li>";
+		content += getFoodLi(menuObj[index].name, menuObj[index].price);
 	}
 
 	$('#food_list').html(content);
 
+	order_number = 0;
+	order_price = 0;
+	freshOrderBar();
+	$('#phone').attr('href', 'tel:' + fandian_info.cellphone);
+	$('#phone').html(fandian_info.cellphone);
+
 	$.ui.loadContent('detail', false, false, 'slide');
+
+}
+
+function freshOrderBar() {
+	$('#order_number').html(order_number + "");
+	$('#total_price').html("¥" + order_price);
+}
+
+function getFoodLi(name, price, like) {
+	var li_content = "";
+	li_content += "<li class='food_li'>";
+	li_content += "<label class='food_line' >";
+	li_content += name;
+	li_content += "</label>";
+	li_content += "<img class='food_xin' src='img/xin.png'/>";
+	li_content += "<img class='food_zan' src='img/nzan.png'/>";
+	li_content += "<span class='food_like_label' >";
+	li_content += "100";
+	li_content += "</span>";
+	li_content += "<input type='button' class='price_btn' value='¥" + price + "' onclick='order(" + price + ")'/>";
+	// li_content += "<img class='price_btn' onclick='order(" + price + ")' src='img/nfen.png'/>";
+	// li_content += "<span class='price_label' >";
+	// li_content += "¥" + price;
+	// li_content += "</span>";
+	li_content += "</li>";
+	return li_content;
+}
+
+function order(price) {
+	order_number++;
+	order_price += price;
+	freshOrderBar();
 }
 
 function add_test() {
 
-	var fandian_info_obj = {};
-	fandian_info_obj["fandian_id"] = "1";
-	fandian_info_obj["name"] = "测试饭店";
-	fandian_info_obj["cellphone"] = "12222333";
-	fandian_info_obj["address"] = "test";
+	for (var i = 0; i < 20; i++) {
 
-	var menuList = [];
+		var fandian_info_obj = {};
+		fandian_info_obj["fandian_id"] = i + 1 + "";
+		fandian_info_obj["name"] = "测试饭店" + i;
+		fandian_info_obj["cellphone"] = "12222333";
+		fandian_info_obj["address"] = "test";
+		fandian_info_obj["address"] = 122;
 
-	var food = {};
-	food["food_id"] = "1";
-	food["fandian_id"] = "1";
-	food["name"] = "好吃的";
-	food["price"] = 200;
-	food["like"] = 122;
-	menuList.push(food);
+		var menuList = [];
 
-	fandian_info_obj["menu"] = JSON.stringify(menuList);
+		for (var index = 1; index < 50; index++) {
+			var food = {};
+			food["food_id"] = "1";
+			food["fandian_id"] = "1";
+			food["name"] = "好吃的";
+			food["price"] = 200 + index;
+			// food["price"] = 200 ;
+			food["like"] = 122;
+			menuList.push(food);
+		}
 
-	data_insert(fandian_info_obj);
+		fandian_info_obj["menu"] = JSON.stringify(menuList);
+
+		data_insert(fandian_info_obj);
+	}
 
 }
 

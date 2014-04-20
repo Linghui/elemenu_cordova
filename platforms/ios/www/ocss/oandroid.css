@@ -4,9 +4,6 @@
 	padding-bottom: 30px;
 }
 
-
-
-
 #afui.android .left_btn {
 	position: absolute;
 	left: 25px;
@@ -22,8 +19,6 @@
 #afui.android .left_btn:active {
 	color: #eab3a6;
 }
-
-
 
 #afui.android .left_back_btn {
 	position: absolute;
@@ -78,12 +73,9 @@
 	height: 90px;
 }
 
-
-
 #afui.android .fandian_li.pressed {
 	background-color: #f3f3f3;
 }
-
 
 #afui.android .fandian_li:active {
 	background-color: #f3f3f3;
@@ -101,7 +93,7 @@
 	font-size: 15px;
 	position: absolute;
 	margin-left: -53px;
-	margin-top: 4px;
+	margin-top: 5px;
 	width: 50px;
 	text-align: center;
 	color: #DA1E9E;
@@ -119,3 +111,98 @@
 	top: 10px;
 	right: 10px;
 }
+
+#afui.android .food_li {
+	height: 80px;
+}
+
+#afui.android .food_line {
+	font-size: 30px;
+	font-weight: bold;
+	width: inherit;
+	text-align: left;
+	padding-top: 6px;
+}
+#afui.android .food_xin {
+	padding-top: 13px;
+}
+#afui.android .food_zan {
+}
+#afui.android .food_like_label {
+	font-weight: 100;
+	font-size: 15px;
+	position: absolute;
+	margin-left: -53px;
+	margin-top: 17px;
+	width: 50px;
+	text-align: center;
+	color: #DA1E9E;
+}
+
+#afui.android .price_btn {
+	position: absolute;
+	right: 25px;
+	bottom: 20px;
+	width: 80px;
+	/* border-color: #ccc; */
+	/* border: 10px !important; */
+	background-color: rgba(255, 255, 255, 0);
+	display: inline-block;
+	font-size: 20px !important;
+	font-weight: 100;
+	color: #EB258C;
+	text-align: center;
+	vertical-align: bottom;
+	border: 2px solid #EB258C;
+	padding: 5px;
+	padding-bottom: 2px;
+	border-radius: 6px;
+	/* box-shadow: 0 1px 0 #fff; */
+	text-decoration: none;
+}
+#afui.android .price_btn.pressed {
+	background-color: #EB258C;
+	color: #FFFFFF;
+}
+
+#afui.android .price_btn:active {
+	background-color: #EB258C;
+	color: #FFFFFF;
+}
+
+#afui.android .order_bar {
+	background: #000000;
+	height: inherit;
+}
+#afui.android .round {
+	padding-top: 20px;
+	padding-left: 20px;
+}
+#afui.android .order_number {
+	position: absolute;
+	left: 25px;
+	top: 24px;
+	text-align: center;
+	width: 24px;
+	color: #FFFFFF;
+}
+#afui.android .total_price {
+	position: absolute;
+	top: 24px;
+	color: #FFFFFF;
+	padding-left: 20px;
+}
+
+#afui.android .cellphone {
+	position: absolute;
+	top: 16px !important;
+	right: 50px;
+	width: 200px !important;
+	background: #4CD60B !important;
+	border-radius: 8px;
+	height: 40px !important;
+	line-height: 40px;
+	font-size: 26px;
+	border-top: 0px solid #000 !important;
+}
+
