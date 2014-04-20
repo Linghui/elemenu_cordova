@@ -50,6 +50,17 @@
 	height: 90px;
 }
 
+
+
+#afui.android .fandian_li.pressed {
+	background-color: #f3f3f3;
+}
+
+
+#afui.android .fandian_li:active {
+	background-color: #f3f3f3;
+}
+
 #afui.android .fandian_line {
 	font-size: 24px;
 	font-weight: bold;
@@ -80,4 +91,3 @@
 	top: 10px;
 	right: 10px;
 }
-

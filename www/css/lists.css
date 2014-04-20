@@ -8,10 +8,6 @@
 	-webkit-box-sizing: border-box;
 }
 
-#afui .list.pressed {
-	background-color: #f3f3f3;
-}
-
 #afui .list li {
 	display: block;
 	list-style: none;

@@ -74,7 +74,7 @@ function index_load_list() {
 	showing_page = 0;
 
 	// $("#afui").get(0).className = "ios7";
-	$("#afui").get(0).className = "android";
+	// $("#afui").get(0).className = "android";
 	// $.ui.toggleNavMenu()
 
 	var fandian_list = data_get_fandian_list();
