@@ -121,13 +121,13 @@
 	background: #1e1e1e;
 }
 
-#afui.android .footer>footer>a.pressed:not(.button) {
+/*#afui.android .footer>footer>a.pressed:not(.button) {
 border:0px;
 border-top:4px solid #0aa9dc;
 border-radius:0px;
 background:#3a3a3a;
 color:white;
-}
+}*/
 
 #afui.android .footer > footer > a:not(:last-of-type):not(.pressed):not(.button) {
 	border-right: 1px solid black;

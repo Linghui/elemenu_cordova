@@ -124,6 +124,9 @@ function getFandianLi(id, name, like) {
 	return li_content;
 }
 
+var order_number = 0;
+var order_price = 0;
+
 function show_detail(fandian_id) {
 	console.log("show_detail");
 	$('#scrollDiv').scroller({
@@ -144,8 +147,19 @@ function show_detail(fandian_id) {
 
 	$('#food_list').html(content);
 
+	order_number = 0;
+	order_price = 0;
+	freshOrderBar();
+	$('#phone').attr('href', 'tel:' + fandian_info.cellphone);
+	$('#phone').html(fandian_info.cellphone);
+
 	$.ui.loadContent('detail', false, false, 'slide');
 
+}
+
+function freshOrderBar() {
+	$('#order_number').html(order_number + "");
+	$('#total_price').html("¥" + order_price);
 }
 
 function getFoodLi(name, price, like) {
@@ -154,12 +168,12 @@ function getFoodLi(name, price, like) {
 	li_content += "<label class='food_line' >";
 	li_content += name;
 	li_content += "</label>";
-	li_content += "<img src='img/xin.png'/>";
-	li_content += "<img src='img/nzan.png'/>";
-	li_content += "<span class='like_label' >";
+	li_content += "<img class='food_xin' src='img/xin.png'/>";
+	li_content += "<img class='food_zan' src='img/nzan.png'/>";
+	li_content += "<span class='food_like_label' >";
 	li_content += "100";
 	li_content += "</span>";
-	li_content += "<input type='button' class='price_btn' value='¥"+ price + "'/>";
+	li_content += "<input type='button' class='price_btn' value='¥" + price + "' onclick='order(" + price + ")'/>";
 	// li_content += "<img class='price_btn' onclick='order(" + price + ")' src='img/nfen.png'/>";
 	// li_content += "<span class='price_label' >";
 	// li_content += "¥" + price;
@@ -169,7 +183,9 @@ function getFoodLi(name, price, like) {
 }
 
 function order(price) {
-
+	order_number++;
+	order_price += price;
+	freshOrderBar();
 }
 
 function add_test() {

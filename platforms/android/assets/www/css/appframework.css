@@ -87,10 +87,10 @@
  
 }
 
-#afui footer>a.pressed:not(.button) {
+/*#afui footer>a.pressed:not(.button) {
     border-radius:0;    
     background:#00AEEF;
-}
+}*/
 
 #afui footer>a.icon.pressed:not(.button):before {
     color:inherit;
