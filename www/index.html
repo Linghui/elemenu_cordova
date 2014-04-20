@@ -56,7 +56,9 @@ under the License.
 		<div id="afui" >
 			<div id="main" class="panel" selected="true" data-load='index_load_list' data-header='main_header' data-footer='test_footer'>
 				<!-- <div id="main" class="panel" selected="true" data-load='index_load_list' data-header='main_header' > -->
-
+				<div id = "main_c">
+					
+				</div>
 			</div>
 			<header id='main_header'>
 				<h1>我的菜单</h1>
@@ -71,8 +73,7 @@ under the License.
 			</footer>
 
 			<div id="detail" class="panel" >
-				<script>
-				</script>
+				<script></script>
 				<header id='detail_header'>
 					<a class="left_back_btn" onclick="back()">主页</a>
 					<h1 id='fandian_name'>饭店名字</h1>
@@ -107,6 +108,26 @@ under the License.
 		<script type="text/javascript" src="js/index.js"></script>
 		<script type="text/javascript" src="js/data_center.js"></script>
 		<script type="text/javascript" src="js/scan.js"></script>
+		<script>
+			function loadedPanel(what) {
+				//We are going to set the badge as the number of li elements inside the target
+				$.ui.updateBadge("#aflink", $("#af").find("li").length);
+			}
+
+			function unloadedPanel(what) {
+				console.log("unloaded " + what.id);
+			}
+
+			if (!((window.DocumentTouch && document instanceof DocumentTouch) || 'ontouchstart' in window)) {
+				var script = document.createElement("script");
+				script.src = "plugins/af.desktopBrowsers.js";
+				var tag = $("head").append(script);
+				//$.os.desktop=true;
+			}
+
+			//  $.feat.nativeTouchScroll=true;
+
+		</script>
 		<script type="text/javascript">
 			app.initialize();
 		</script>

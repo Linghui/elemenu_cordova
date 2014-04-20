@@ -9,11 +9,10 @@
 }
 
 #afui.ios7 .header {
-    background:#D60C0C;
+    background:rgb(249,249,249);
     color:inherit;
     border:none;
     border-bottom:1px solid rgba(158,158,158,255);
-    height:60px;
 }
 
 #afui.ios7 .header .button {
@@ -26,9 +25,6 @@
 #afui.ios7 .header h1 {
     color:inherit;
     text-shadow:none;
-    top:20px;
-    color:#FFF;
-    font-size: 20px ;
 }
 
 #afui.ios7 .panel, #afui.ios7 #modalContainer {

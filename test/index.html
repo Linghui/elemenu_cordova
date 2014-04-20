@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<!--
+Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied.  See the License for the
+specific language governing permissions and limitations
+under the License.
+-->
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="format-detection" content="telephone=no" />
+		<!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+		<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+
+      <link rel="stylesheet" type="text/css" href="css/main.css"  />
+      <link rel="stylesheet" type="text/css" href="css/appframework.css"  />
+      <link rel="stylesheet" type="text/css" href="css/lists.css"  />
+      <link rel="stylesheet" type="text/css" href="css/forms.css"  />
+      <link rel="stylesheet" type="text/css" href="css/buttons.css"  />        
+      <link rel="stylesheet" type="text/css" href="css/badges.css"  />        
+      <link rel="stylesheet" type="text/css" href="css/grid.css"  />
+
+      <link rel="stylesheet" type="text/css" href="css/android.css"  />
+      <link rel="stylesheet" type="text/css" href="css/win8.css"  />
+      <link rel="stylesheet" type="text/css" href="css/bb.css"  />
+      <link rel="stylesheet" type="text/css" href="css/ios.css"  />
+      <link rel="stylesheet" type="text/css" href="css/ios7.css"  />
+      <link rel="stylesheet" type="text/css" href="css/tizen.css"  />
+        
+      <link rel="stylesheet" type="text/css" href="plugins/css/af.actionsheet.css"  />
+      <link rel="stylesheet" type="text/css" href="plugins/css/af.popup.css"  />
+      <link rel="stylesheet" type="text/css" href="plugins/css/af.scroller.css"  />
+      <link rel="stylesheet" type="text/css" href="plugins/css/af.selectBox.css"  />        
+        
+        <!-- uncomment for intel.xdk apps 
+        <script type="text/javascript" charset="utf-8" src="intelxdk.js"></script>
+        <script type="text/javascript" charset="utf-8" src="xhr.js"></script>
+        -->
+        <script type="text/javascript" charset="utf-8" src="./appframework.js"></script>
+        <!-- include af.desktopBrowsers.js on desktop browsers only -->
+        <script>
+
+            function loadedPanel(what) {
+                //We are going to set the badge as the number of li elements inside the target
+                $.ui.updateBadge("#aflink", $("#af").find("li").length);
+            }
+
+
+            function unloadedPanel(what) {
+                console.log("unloaded " + what.id);
+            }
+
+            if (!((window.DocumentTouch && document instanceof DocumentTouch) || 'ontouchstart' in window)) {
+                var script = document.createElement("script");
+                script.src = "plugins/af.desktopBrowsers.js";
+                var tag = $("head").append(script);
+                //$.os.desktop=true;
+            }
+
+          //  $.feat.nativeTouchScroll=true;
+          
+        </script>        
+        <script type="text/javascript" charset="utf-8" src="./plugins/af.actionsheet.js"></script>
+        <script type="text/javascript" charset="utf-8" src="./plugins/af.css3animate.js"></script>
+        <script type="text/javascript" charset="utf-8" src="./plugins/af.passwordBox.js"></script>          
+        <script type="text/javascript" charset="utf-8" src="./plugins/af.scroller.js"></script>
+        <script type="text/javascript" charset="utf-8" src="./plugins/af.selectBox.js"></script>
+        <script type="text/javascript" charset="utf-8" src="./plugins/af.touchEvents.js"></script>
+        <script type="text/javascript" charset="utf-8" src="./plugins/af.touchLayer.js"></script>
+        <script type="text/javascript" charset="utf-8" src="./plugins/af.popup.js"></script>
+
+        <script type="text/javascript" charset="utf-8" src="./ui/appframework.ui.js"></script>
+        <!-- <script type="text/javascript" charset="utf-8" src="./ui/transitions/all.js"></script> -->
+        <script type="text/javascript" charset="utf-8" src="./ui/transitions/fade.js"></script>
+        <script type="text/javascript" charset="utf-8" src="./ui/transitions/flip.js"></script>
+        <script type="text/javascript" charset="utf-8" src="./ui/transitions/pop.js"></script>
+        <script type="text/javascript" charset="utf-8" src="./ui/transitions/slide.js"></script>
+        <script type="text/javascript" charset="utf-8" src="./ui/transitions/slideDown.js"></script>
+        <script type="text/javascript" charset="utf-8" src="./ui/transitions/slideUp.js"></script>
+        <script type="text/javascript" charset="utf-8" src="./plugins/af.slidemenu.js"></script>
+        
+	</head>
+	<body >
+
+		<div id="afui" >
+			<div title='Welcome' id="main" class="panel" selected="true" data-load="loadedPanel" data-unload="unloadedPanel" data-tab="navbar_home">
+				<h2 class='expanded' onclick='showHide(this,"main_info");'>Welcome</h2>
+
+				<p id='main_info'>
+					Welcome to the kitchen sink demo for App Framework. Here you will find samples of how to use the App Framework libraries. Please select an option from below.
+				</p>
+				<ul class="list">
+					<li class='red'>
+						<a href="#af" id='aflink' class='icon home big'>App Framework</a>
+					</li>
+					<li class="blue">
+						<a href="#afuidemo">App Framework UI</a>
+					</li>
+					<li>
+						<a href="index.html" data-ignore="true">App Framework theme</a>
+					</li>
+					<li>
+						<a href="index.html?ios" data-ignore="true">iOS theme</a>
+					</li>
+					<li>
+						<a href="index.html?android" data-ignore="true">Android theme</a>
+					</li>
+					<li>
+						<a href="index.html?win8" data-ignore="true">Win8 theme</a>
+					</li>
+					<li>
+						<a href="index.html?bb" data-ignore="true">BB10 theme</a>
+					</li>
+					<li>
+						<a href="index.html?ios7" data-ignore="true">ios7</a>
+					</li>
+					<li>
+						<a href="index.html?tizen" data-ignore="true">tizen</a>
+					</li>
+
+				</ul>
+			</div>
+
+			<header id='main_header'>
+				<h1>我的菜单</h1>
+			</header>
+
+			<footer id='test_footer'>
+				<a onclick="add_test()">添加测试数据</a>
+				<a onclick="data_clear()" href="#test">清除测试数据</a>
+				<a onclick="onBackKeyDown()">退出</a>
+			</footer>
+		</div>
+
+		<script type="text/javascript" charset="utf-8" src="./appframework.js"></script>
+		<script type="text/javascript" charset="utf-8" src="./plugins/af.actionsheet.js"></script>
+		<script type="text/javascript" charset="utf-8" src="./plugins/af.css3animate.js"></script>
+		<script type="text/javascript" charset="utf-8" src="./plugins/af.passwordBox.js"></script>
+		<script type="text/javascript" charset="utf-8" src="./plugins/af.scroller.js"></script>
+		<script type="text/javascript" charset="utf-8" src="./plugins/af.selectBox.js"></script>
+		<script type="text/javascript" charset="utf-8" src="./plugins/af.touchEvents.js"></script>
+		<script type="text/javascript" charset="utf-8" src="./plugins/af.touchLayer.js"></script>
+		<script type="text/javascript" charset="utf-8" src="./plugins/af.popup.js"></script>
+
+		<script type="text/javascript" charset="utf-8" src="./ui/appframework.ui.js"></script>
+		<script type="text/javascript" charset="utf-8" src="./ui/transitions/fade.js"></script>
+		<script type="text/javascript" charset="utf-8" src="./ui/transitions/flip.js"></script>
+		<script type="text/javascript" charset="utf-8" src="./ui/transitions/pop.js"></script>
+		<script type="text/javascript" charset="utf-8" src="./ui/transitions/slide.js"></script>
+		<script type="text/javascript" charset="utf-8" src="./ui/transitions/slideDown.js"></script>
+		<script type="text/javascript" charset="utf-8" src="./ui/transitions/slideUp.js"></script>
+		<script type="text/javascript" charset="utf-8" src="./plugins/af.slidemenu.js"></script>
+		<script>
+			function index_load_list() {
+				console.log("index_load_list");
+
+				// var myScroller;
+				// $.ui.ready(function() {
+					// console.log("scrolling");
+					// var scroller = $("#main").scroller();
+					// //此处id就是为需要滚动的区域id
+				// });
+			}
+
+		</script>
+	</body>
+</html>

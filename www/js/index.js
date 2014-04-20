@@ -90,12 +90,12 @@ function index_load_list() {
 		list_content += "</ul>";
 
 		console.log('list_content ' + list_content);
-		$('#main').html(list_content);
+		$('#main_c').html(list_content);
 
 	} else {
 		console.log('index_load_list null_page');
 
-		$('#main').html('<div width="100%" height="100%" style="text-align:center"> <img class="wucdbj" src="img/wucdbj.png"/> <h2 class="tip">您没有录入任何菜单</h2> <input class="start_btn" type="button" value="开始扫描" onclick="scan()" /> </div>');
+		$('#main_c').html('<div width="100%" height="100%" style="text-align:center"> <img class="wucdbj" src="img/wucdbj.png"/> <h2 class="tip">您没有录入任何菜单</h2> <input class="start_btn" type="button" value="开始扫描" onclick="scan()" /> </div>');
 
 	}
 
@@ -153,29 +153,32 @@ function show_detail(fandian_id) {
 
 function add_test() {
 
-	var fandian_info_obj = {};
-	fandian_info_obj["fandian_id"] = "1";
-	fandian_info_obj["name"] = "测试饭店";
-	fandian_info_obj["cellphone"] = "12222333";
-	fandian_info_obj["address"] = "test";
-	fandian_info_obj["address"] = 122;
+	for (var i = 0; i < 20; i++) {
 
-	var menuList = [];
+		var fandian_info_obj = {};
+		fandian_info_obj["fandian_id"] = i + 1 + "";
+		fandian_info_obj["name"] = "测试饭店" + i;
+		fandian_info_obj["cellphone"] = "12222333";
+		fandian_info_obj["address"] = "test";
+		fandian_info_obj["address"] = 122;
 
-	// for (var index = 1; index < 50; index++) {
-	var food = {};
-	food["food_id"] = "1";
-	food["fandian_id"] = "1";
-	food["name"] = "好吃的";
-	// food["price"] = 200 + index;
-	food["price"] = 200 ;
-	food["like"] = 122;
-	menuList.push(food);
-	// }
+		var menuList = [];
 
-	fandian_info_obj["menu"] = JSON.stringify(menuList);
+		for (var index = 1; index < 50; index++) {
+			var food = {};
+			food["food_id"] = "1";
+			food["fandian_id"] = "1";
+			food["name"] = "好吃的";
+			food["price"] = 200 + index;
+			// food["price"] = 200 ;
+			food["like"] = 122;
+			menuList.push(food);
+		}
 
-	data_insert(fandian_info_obj);
+		fandian_info_obj["menu"] = JSON.stringify(menuList);
+
+		data_insert(fandian_info_obj);
+	}
 
 }
 

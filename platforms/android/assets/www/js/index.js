@@ -74,7 +74,7 @@ function index_load_list() {
 	showing_page = 0;
 
 	// $("#afui").get(0).className = "ios7";
-	// $("#afui").get(0).className = "android";
+	$("#afui").get(0).className = "android";
 	// $.ui.toggleNavMenu()
 
 	var fandian_list = data_get_fandian_list();
@@ -126,6 +126,9 @@ function getLi(id, name, like) {
 
 function show_detail(fandian_id) {
 	console.log("show_detail");
+	$('#scrollDiv').scroller({
+		useJsScroll : true
+	});
 	showing_page = 1;
 	var fandian_info = data_get_fandian_by_id(fandian_id);
 
@@ -145,6 +148,7 @@ function show_detail(fandian_id) {
 	$('#food_list').html(content);
 
 	$.ui.loadContent('detail', false, false, 'slide');
+
 }
 
 function add_test() {
@@ -154,16 +158,20 @@ function add_test() {
 	fandian_info_obj["name"] = "测试饭店";
 	fandian_info_obj["cellphone"] = "12222333";
 	fandian_info_obj["address"] = "test";
+	fandian_info_obj["address"] = 122;
 
 	var menuList = [];
 
-	var food = {};
-	food["food_id"] = "1";
-	food["fandian_id"] = "1";
-	food["name"] = "好吃的";
-	food["price"] = 200;
-	food["like"] = 122;
-	menuList.push(food);
+	for (var index = 1; index < 50; index++) {
+		var food = {};
+		food["food_id"] = "1";
+		food["fandian_id"] = "1";
+		food["name"] = "好吃的";
+		food["price"] = 200 + index;
+		// food["price"] = 200 ;
+		food["like"] = 122;
+		menuList.push(food);
+	}
 
 	fandian_info_obj["menu"] = JSON.stringify(menuList);
 
