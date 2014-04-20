@@ -4,13 +4,14 @@ function data_insert(fandian_info) {
 	console.log("data_center fandian name " + JSON.stringify(fandian_info));
 
 	var fandian_list = data_get_fandian_list();
-	var addedBefore = false;
 
+    var addedBefore = false;
 	if (fandian_list) {
 
 		for (var i = 0; i < fandian_list.length; i++) {
 			console.log('fandian_list[i].fandian_id ' + fandian_list[i].fandian_id);
 			if (fandian_list[i].fandian_id == fandian_info.fandian_id) {
+				fandian_list[i] = fandian_info;
 				addedBefore = true;
 				break;
 			}
@@ -20,11 +21,9 @@ function data_insert(fandian_info) {
 
 		if (!addedBefore) {
 			fandian_list.push(fandian_info);
-			data_set_fandian_list(fandian_list);
-			return true;
-		} else {
-			return false;
 		}
+
+		data_set_fandian_list(fandian_list);
 
 	} else {
 		console.log("New New New");
@@ -34,8 +33,9 @@ function data_insert(fandian_info) {
 		console.log("fandian_list size " + fandian_list.length);
 		data_set_fandian_list(fandian_list);
 
-		return true;
 	}
+
+	return true;
 
 }
 

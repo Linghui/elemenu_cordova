@@ -23,9 +23,6 @@ under the License.
 		<meta name="format-detection" content="telephone=no" />
 		<!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
 		<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
-		<link rel="stylesheet" type="text/css" href="css/index.css" />
-		<link rel="stylesheet" type="text/css" href="ocss/common.css" />
-		<link rel="stylesheet" type="text/css" href="ocss/main.css" />
 
 		<link rel="stylesheet" type="text/css" href="css/icons.css" />
 		<link rel="stylesheet" type="text/css" href="css/main.css"  />
@@ -37,40 +34,46 @@ under the License.
 		<link rel="stylesheet" type="text/css" href="css/grid.css"  />
 
 		<link rel="stylesheet" type="text/css" href="css/android.css"  />
-		<link rel="stylesheet" type="text/css" href="css/win8.css"  />
-		<link rel="stylesheet" type="text/css" href="css/bb.css"  />
 		<link rel="stylesheet" type="text/css" href="css/ios.css"  />
 		<link rel="stylesheet" type="text/css" href="css/ios7.css"  />
-		<link rel="stylesheet" type="text/css" href="css/tizen.css"  />
+		<!-- <link rel="stylesheet" type="text/css" href="css/tizen.css"  />
+		<link rel="stylesheet" type="text/css" href="css/win8.css"  />
+		<link rel="stylesheet" type="text/css" href="css/bb.css"  /> -->
 
 		<link rel="stylesheet" type="text/css" href="plugins/css/af.actionsheet.css"  />
 		<link rel="stylesheet" type="text/css" href="plugins/css/af.popup.css"  />
 		<link rel="stylesheet" type="text/css" href="plugins/css/af.scroller.css"  />
 		<link rel="stylesheet" type="text/css" href="plugins/css/af.selectBox.css"  />
 
+		<link rel="stylesheet" type="text/css" href="css/index.css" />
+		<link rel="stylesheet" type="text/css" href="ocss/common.css" />
+		<link rel="stylesheet" type="text/css" href="ocss/main.css" />
+		<link rel="stylesheet" type="text/css" href="ocss/oandroid.css" />
+		<link rel="stylesheet" type="text/css" href="ocss/oios7.css" />
 	</head>
 	<body >
 
 		<div id="afui" >
-			<div id="main" class="panel" selected="true" data-load='index_load_list' data-header='main_header' data-footer='test_footer'>
-				ok
+			<!-- <div id="main" class="panel" selected="true" data-load='index_load_list' data-header='main_header' data-footer='test_footer'> -->
+				<div id="main" class="panel" selected="true" data-load='index_load_list' data-header='main_header' >
 
 			</div>
-
 			<header id='main_header'>
 				<h1>我的菜单</h1>
-				<a id="scan" onclick="data_clear()" style="float: left;">清除</a>
-				<a id="scan" onclick="scan()" style="float: right;">扫描</a>
+				<a onclick="data_clear()" class="left_btn">清除</a>
+				<a onclick="scan()" class="right_btn">扫描</a>
 			</header>
-			<footer id='test_footer'>
+
+			<!-- <footer id='test_footer'>
 				<a onclick="add_test()">添加测试数据</a>
 				<a href="#test">跳转测试页面</a>
-			</footer>
+				<a onclick="onBackKeyDown()">退出</a>
+			</footer> -->
 
 			<div id="detail" class="panel" >
 
 				<header id='detail_header'>
-					<a id="backButton" class="button" >菜单</a>
+					<a class="left_btn" onclick="back()">主页</a>
 					<h1 id='fandian_name'>饭店名字</h1>
 				</header>
 				<ul id='food_list' class="list">
@@ -78,9 +81,7 @@ under the License.
 				</ul>
 			</div>
 
-			<div id="test" class="panel" title="111" >
-
-			</div>
+		</div>
 		</div>
 
 		<script type="text/javascript" charset="utf-8" src="./appframework.js"></script>

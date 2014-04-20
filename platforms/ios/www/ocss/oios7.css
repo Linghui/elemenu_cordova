@@ -1,0 +1,68 @@
+#afui.ios7 .wucdbj {
+	width: 70%;
+	padding-top: 70px;
+	padding-bottom: 30px;
+}
+
+#afui.ios7 .tip {
+	font-size: 24px !important;
+	color: #535353 !important;
+}
+
+
+#afui.ios7 a:link {
+	text-decoration: none;
+}
+
+#afui.ios7 a:active {
+	color: #eab3a6;
+}
+#afui.ios7 a.pressed {
+	color: #eab3a6;
+}
+
+
+#afui.ios7 .left_btn {
+	position: absolute;
+	left: 15px;
+	color: white;
+	height: 70px;
+	padding-top: 34px;
+	font-size: 16px;
+}
+
+#afui.ios7 .left_btn::before {
+	z-index: -1;
+	font-size: 20px;
+	position: absolute;
+	top: 34px;
+	left: -15px;
+	text-align: center;
+	border-radius: 0;
+	border: none;
+	border-color: transparent;
+	box-shadow: none;
+	-webkit-transform: none;
+	transform: none;
+	font-family: 'chevron';
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+	-webkit-font-smoothing: antialiased;
+	content: "\f054";
+	-webkit-transform: rotate(180deg);
+	transform: rotate(180deg);
+	background-color: transparent;
+}
+
+#afui.ios7 .right_btn {
+	position: absolute;
+	right: 15px;
+	height: 70px;
+	padding-top: 34px;
+	font-size: 16px;
+	color: white;
+}

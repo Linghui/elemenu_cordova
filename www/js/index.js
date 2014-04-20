@@ -73,7 +73,9 @@ function index_load_list() {
 	console.log('index_load_list');
 	showing_page = 0;
 
-	$("#afui").get(0).className = "bb";
+	// $("#afui").get(0).className = "ios7";
+	$("#afui").get(0).className = "android";
+	// $.ui.toggleNavMenu()
 
 	var fandian_list = data_get_fandian_list();
 	if (fandian_list && fandian_list.length > 0) {
@@ -83,9 +85,7 @@ function index_load_list() {
 		var list_content = '<ul id="fandian_list" class="list">';
 		for (var i = 0; i < fandian_list.length; i++) {
 			console.log("fandian_list name " + fandian_list[i].name);
-			list_content += "<li ><a class='fandian_line' onclick='show_detail(" + fandian_list[i].fandian_id + ")'>";
-			list_content += fandian_list[i].name;
-			list_content += "</a></li>";
+			list_content += getLi(fandian_list[i].fandian_id, fandian_list[i].name, fandian_list[i].like);
 		}
 		list_content += "</ul>";
 
@@ -99,6 +99,29 @@ function index_load_list() {
 
 	}
 
+}
+
+function getLi(id, name, like) {
+
+	var li_content = "";
+	li_content += "<li class='fandian_li' onclick='show_detail(" + id + ")' >";
+	li_content += "<label class='fandian_line' >";
+	li_content += name;
+	li_content += "</label>";
+	li_content += "<img src='img/xin.png'/>";
+	li_content += "<img src='img/nzan.png'/>";
+	li_content += "<span class='like_label' >";
+	li_content += "100";
+	li_content += "</span>";
+	li_content += "<div>";
+	li_content += "<span class='address_label' >";
+	li_content += "地址:" + " 老TM远了";
+	li_content += "</span>";
+	li_content += "</div>";
+	li_content += "<img class='arrow' src='img/arrow.png'/>";
+	li_content += "</li>"
+
+	return li_content;
 }
 
 function show_detail(fandian_id) {
@@ -138,7 +161,8 @@ function add_test() {
 	food["food_id"] = "1";
 	food["fandian_id"] = "1";
 	food["name"] = "好吃的";
-	food["price"] = 11233;
+	food["price"] = 200;
+	food["like"] = 122;
 	menuList.push(food);
 
 	fandian_info_obj["menu"] = JSON.stringify(menuList);
