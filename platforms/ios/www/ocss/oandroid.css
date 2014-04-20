@@ -6,6 +6,7 @@
 
 
 
+
 #afui.android .left_btn {
 	position: absolute;
 	left: 25px;
@@ -14,7 +15,32 @@
 	padding-top: 25px;
 }
 
-#afui.android .left_btn::before {
+#afui.android .left_btn.pressed {
+	color: #eab3a6;
+}
+
+#afui.android .left_btn:active {
+	color: #eab3a6;
+}
+
+
+
+#afui.android .left_back_btn {
+	position: absolute;
+	left: 25px;
+	color: white;
+	height: 70px;
+	padding-top: 25px;
+}
+
+#afui.android .left_back_btn.pressed {
+	color: #eab3a6;
+}
+
+#afui.android .left_back_btn:active {
+	color: #eab3a6;
+}
+#afui.android .left_back_btn::before {
 	z-index: -1;
 	font-size: 22px;
 	position: absolute;
@@ -46,4 +72,50 @@
 	right: 25px;
 	height: 70px;
 	padding-top: 25px;
+}
+
+#afui.android .fandian_li {
+	height: 90px;
+}
+
+
+
+#afui.android .fandian_li.pressed {
+	background-color: #f3f3f3;
+}
+
+
+#afui.android .fandian_li:active {
+	background-color: #f3f3f3;
+}
+
+#afui.android .fandian_line {
+	font-size: 24px;
+	font-weight: bold;
+	width: inherit;
+	text-align: left;
+	padding-top: 0px;
+}
+#afui.android .like_label {
+	font-weight: 100;
+	font-size: 15px;
+	position: absolute;
+	margin-left: -53px;
+	margin-top: 4px;
+	width: 50px;
+	text-align: center;
+	color: #DA1E9E;
+}
+#afui.android .address_label {
+	font-size: 15px;
+	position: absolute;
+	left: 20px;
+	margin-top: 10px;
+	text-align: left;
+	color: #C0BBBF;
+}
+#afui.android .arrow {
+	position: absolute;
+	top: 10px;
+	right: 10px;
 }

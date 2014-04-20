@@ -4,6 +4,9 @@
 	padding-bottom: 30px;
 }
 
+
+
+
 #afui.android .left_btn {
 	position: absolute;
 	left: 25px;
@@ -12,7 +15,32 @@
 	padding-top: 25px;
 }
 
-#afui.android .left_btn::before {
+#afui.android .left_btn.pressed {
+	color: #eab3a6;
+}
+
+#afui.android .left_btn:active {
+	color: #eab3a6;
+}
+
+
+
+#afui.android .left_back_btn {
+	position: absolute;
+	left: 25px;
+	color: white;
+	height: 70px;
+	padding-top: 25px;
+}
+
+#afui.android .left_back_btn.pressed {
+	color: #eab3a6;
+}
+
+#afui.android .left_back_btn:active {
+	color: #eab3a6;
+}
+#afui.android .left_back_btn::before {
 	z-index: -1;
 	font-size: 22px;
 	position: absolute;

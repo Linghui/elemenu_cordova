@@ -54,60 +54,60 @@ under the License.
 	<body >
 
 		<div id="afui" >
-			<!-- <div id="main" class="panel" selected="true" data-load='index_load_list' data-header='main_header' data-footer='test_footer'> -->
-				<div id="main" class="panel" selected="true" data-load='index_load_list' data-header='main_header' >
+			<div id="main" class="panel" selected="true" data-load='index_load_list' data-header='main_header' data-footer='test_footer'>
+				<!-- <div id="main" class="panel" selected="true" data-load='index_load_list' data-header='main_header' > -->
 
 			</div>
 			<header id='main_header'>
 				<h1>我的菜单</h1>
-				<a onclick="data_clear()" class="left_btn">清除</a>
+				<a onclick="" class="left_btn">编辑</a>
 				<a onclick="scan()" class="right_btn">扫描</a>
 			</header>
 
-			<!-- <footer id='test_footer'>
+			<footer id='test_footer'>
 				<a onclick="add_test()">添加测试数据</a>
-				<a href="#test">跳转测试页面</a>
+				<a onclick="data_clear()" href="#test">清除测试数据</a>
 				<a onclick="onBackKeyDown()">退出</a>
-			</footer> -->
+				</footer>
 
-			<div id="detail" class="panel" >
+				<div id="detail" class="panel" >
 
 				<header id='detail_header'>
-					<a class="left_btn" onclick="back()">主页</a>
-					<h1 id='fandian_name'>饭店名字</h1>
+				<a class="left_back_btn" onclick="back()">主页</a>
+				<h1 id='fandian_name'>饭店名字</h1>
 				</header>
 				<ul id='food_list' class="list">
 
 				</ul>
-			</div>
+				</div>
 
-		</div>
-		</div>
+				</div>
+				</div>
 
-		<script type="text/javascript" charset="utf-8" src="./appframework.js"></script>
-		<script type="text/javascript" charset="utf-8" src="./plugins/af.actionsheet.js"></script>
-		<script type="text/javascript" charset="utf-8" src="./plugins/af.css3animate.js"></script>
-		<script type="text/javascript" charset="utf-8" src="./plugins/af.passwordBox.js"></script>
-		<script type="text/javascript" charset="utf-8" src="./plugins/af.scroller.js"></script>
-		<script type="text/javascript" charset="utf-8" src="./plugins/af.selectBox.js"></script>
-		<script type="text/javascript" charset="utf-8" src="./plugins/af.touchEvents.js"></script>
-		<script type="text/javascript" charset="utf-8" src="./plugins/af.touchLayer.js"></script>
-		<script type="text/javascript" charset="utf-8" src="./plugins/af.popup.js"></script>
+				<script type="text/javascript" charset="utf-8" src="./appframework.js"></script>
+				<script type="text/javascript" charset="utf-8" src="./plugins/af.actionsheet.js"></script>
+				<script type="text/javascript" charset="utf-8" src="./plugins/af.css3animate.js"></script>
+				<script type="text/javascript" charset="utf-8" src="./plugins/af.passwordBox.js"></script>
+				<script type="text/javascript" charset="utf-8" src="./plugins/af.scroller.js"></script>
+				<script type="text/javascript" charset="utf-8" src="./plugins/af.selectBox.js"></script>
+				<script type="text/javascript" charset="utf-8" src="./plugins/af.touchEvents.js"></script>
+				<script type="text/javascript" charset="utf-8" src="./plugins/af.touchLayer.js"></script>
+				<script type="text/javascript" charset="utf-8" src="./plugins/af.popup.js"></script>
 
-		<script type="text/javascript" charset="utf-8" src="./ui/appframework.ui.js"></script>
-		<script type="text/javascript" charset="utf-8" src="./ui/transitions/fade.js"></script>
-		<script type="text/javascript" charset="utf-8" src="./ui/transitions/flip.js"></script>
-		<script type="text/javascript" charset="utf-8" src="./ui/transitions/pop.js"></script>
-		<script type="text/javascript" charset="utf-8" src="./ui/transitions/slide.js"></script>
-		<script type="text/javascript" charset="utf-8" src="./ui/transitions/slideDown.js"></script>
-		<script type="text/javascript" charset="utf-8" src="./ui/transitions/slideUp.js"></script>
-		<script type="text/javascript" charset="utf-8" src="./plugins/af.slidemenu.js"></script>
-		<script type="text/javascript" src="cordova.js"></script>
-		<script type="text/javascript" src="js/index.js"></script>
-		<script type="text/javascript" src="js/data_center.js"></script>
-		<script type="text/javascript" src="js/scan.js"></script>
-		<script type="text/javascript">
-			app.initialize();
-		</script>
+				<script type="text/javascript" charset="utf-8" src="./ui/appframework.ui.js"></script>
+				<script type="text/javascript" charset="utf-8" src="./ui/transitions/fade.js"></script>
+				<script type="text/javascript" charset="utf-8" src="./ui/transitions/flip.js"></script>
+				<script type="text/javascript" charset="utf-8" src="./ui/transitions/pop.js"></script>
+				<script type="text/javascript" charset="utf-8" src="./ui/transitions/slide.js"></script>
+				<script type="text/javascript" charset="utf-8" src="./ui/transitions/slideDown.js"></script>
+				<script type="text/javascript" charset="utf-8" src="./ui/transitions/slideUp.js"></script>
+				<script type="text/javascript" charset="utf-8" src="./plugins/af.slidemenu.js"></script>
+				<script type="text/javascript" src="cordova.js"></script>
+				<script type="text/javascript" src="js/index.js"></script>
+				<script type="text/javascript" src="js/data_center.js"></script>
+				<script type="text/javascript" src="js/scan.js"></script>
+				<script type="text/javascript">
+app.initialize();
+				</script>
 	</body>
 </html>
