@@ -85,7 +85,7 @@ function index_load_list() {
 		var list_content = '<ul id="fandian_list" class="list">';
 		for (var i = 0; i < fandian_list.length; i++) {
 			console.log("fandian_list name " + fandian_list[i].name);
-			list_content += getLi(fandian_list[i].fandian_id, fandian_list[i].name, fandian_list[i].like);
+			list_content += getFandianLi(fandian_list[i].fandian_id, fandian_list[i].name, fandian_list[i].like);
 		}
 		list_content += "</ul>";
 
@@ -101,7 +101,7 @@ function index_load_list() {
 
 }
 
-function getLi(id, name, like) {
+function getFandianLi(id, name, like) {
 
 	var li_content = "";
 	li_content += "<li class='fandian_li' onclick='show_detail(" + id + ")' >";
@@ -139,15 +139,36 @@ function show_detail(fandian_id) {
 
 	var content = "";
 	for (var index = 0; index < menuObj.length; index++) {
-		content += "<li>";
-		content += menuObj[index].name;
-		content += menuObj[index].price;
-		content += "</li>";
+		content += getFoodLi(menuObj[index].name, menuObj[index].price);
 	}
 
 	$('#food_list').html(content);
 
 	$.ui.loadContent('detail', false, false, 'slide');
+
+}
+
+function getFoodLi(name, price, like) {
+	var li_content = "";
+	li_content += "<li class='food_li'>";
+	li_content += "<label class='food_line' >";
+	li_content += name;
+	li_content += "</label>";
+	li_content += "<img src='img/xin.png'/>";
+	li_content += "<img src='img/nzan.png'/>";
+	li_content += "<span class='like_label' >";
+	li_content += "100";
+	li_content += "</span>";
+	li_content += "<input type='button' class='price_btn' value='¥"+ price + "'/>";
+	// li_content += "<img class='price_btn' onclick='order(" + price + ")' src='img/nfen.png'/>";
+	// li_content += "<span class='price_label' >";
+	// li_content += "¥" + price;
+	// li_content += "</span>";
+	li_content += "</li>";
+	return li_content;
+}
+
+function order(price) {
 
 }
 
