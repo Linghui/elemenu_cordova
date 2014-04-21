@@ -44,7 +44,6 @@ function onDeviceReady() {
 	// 注册回退按钮事件监听器
 
 	document.addEventListener("backbutton", onBackKeyDown, false);
-
 	//返回键
 }
 
@@ -85,6 +84,7 @@ function index_load_list() {
 	showing_page = 0;
 
 	$.ui.toggleNavMenu(false);
+	// checkConnection();
 	// $("#afui").get(0).className = "ios7";
 	// $("#afui").get(0).className = "android";
 
@@ -234,3 +234,5 @@ function back() {
 function close_footer() {
 	$.ui.toggleNavMenu(false);
 }
+
+

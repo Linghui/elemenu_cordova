@@ -18,17 +18,25 @@ function success(resultArray) {
 		$.ajax({
 			url : requestRrl,
 			success : function(data) {
-				
 
-				if(data){
+				if (data) {
 					var proto = JSON.parse(data);
-					if(proto && proto.length >= 1){
-						var fandian_info_str = proto[0].t;
-						var fandian_info_obj = JSON.parse(fandian_info_str);
-						if(data_insert(fandian_info_obj)){
-							index_load_list();
+					if (proto && proto.length >= 1) {
+
+						var fandian_response = proto[0];
+
+						if (fandian_response.c == 1) {
+
+							var fandian_info_str = fandian_response.t;
+							var fandian_info_obj = JSON.parse(fandian_info_str);
+							if (data_insert(fandian_info_obj)) {
+								index_load_list();
+							}
+						} else {
+							alert("信息不存在");
 						}
-					}	
+
+					}
 				}
 
 				$.ui.hideMask();
@@ -57,7 +65,7 @@ function success(resultArray) {
 }
 
 function failure(error) {
-	
+
 }
 
 function scan() {

@@ -42,7 +42,8 @@
                             "xml": "<activity android:name=\"com.mirasense.scanditsdk.plugin.ScanditSDKActivity\" />",
                             "count": 1
                         }
-                    ]
+                    ],
+                    "/*": []
                 }
             }
         }

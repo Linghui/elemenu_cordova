@@ -65,7 +65,6 @@
 		D4A0D8761607E02300AEF8BB /* Default-568h@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = D4A0D8751607E02300AEF8BB /* Default-568h@2x~iphone.png */; };
 		D5B9BE5DB9D142909B6FBDC0 /* libscanditsdk-iphone-4.0.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E20AE40D0B0E490F9FA880B5 /* libscanditsdk-iphone-4.0.0.a */; };
 		DF6DAF063C8A401CB64E644F /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D57BC8093C14CD3A654C83D /* AudioToolbox.framework */; };
-		E686EC85FEB4499F9F567FAC /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D38E608EF26456AA5216022 /* SystemConfiguration.framework */; };
 		FD6391663D2C4976A4252882 /* flashlight-turn-on-icon-pressed.png in Resources */ = {isa = PBXBuildFile; fileRef = 1526204AC78644958F9A8AB9 /* flashlight-turn-on-icon-pressed.png */; };
 /* End PBXBuildFile section */
 
@@ -183,7 +182,6 @@
 				84FCCEF92B8C4F1DBB692FE0 /* CoreMedia.framework in Frameworks */,
 				53897611A4B24E1E88A084B4 /* CoreVideo.framework in Frameworks */,
 				693A2C94709449A48268B77F /* QuartzCore.framework in Frameworks */,
-				E686EC85FEB4499F9F567FAC /* SystemConfiguration.framework in Frameworks */,
 				630383E1FDCD460BA04DB5D0 /* libiconv.dylib in Frameworks */,
 				3FA8157EF0224B7982FB22B0 /* libz.dylib in Frameworks */,
 				26860E4CE8974BF9A90D6FB8 /* libc++.dylib in Frameworks */,
