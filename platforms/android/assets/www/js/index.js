@@ -32,9 +32,7 @@ var app = {
 function onDeviceReady() {
 	console.log('onDeviceReady');
 	// 注册回退按钮事件监听器
-	
-	// $("#afui").get(0).className = "ios7";
-	// $("#afui").get(0).className = "android";
+
 	$.ui.toggleNavMenu()
 	document.addEventListener("backbutton", onBackKeyDown, false);
 	//返回键
@@ -76,7 +74,9 @@ function index_load_list() {
 	console.log('index_load_list');
 	showing_page = 0;
 
-
+	// $("#afui").get(0).className = "ios7";
+	$("#afui").get(0).className = "android";
+	
 	var fandian_list = data_get_fandian_list();
 	if (fandian_list && fandian_list.length > 0) {
 		console.log('index_load_list list_page ' + fandian_list.length);

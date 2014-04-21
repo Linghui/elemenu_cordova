@@ -27,13 +27,25 @@ var app = {
 	// 'load', 'deviceready', 'offline', and 'online'.
 	bindEvents : function() {
 		document.addEventListener("deviceready", onDeviceReady, false);
+		console.log("android " + $.os.android);
+		console.log("ios " + $.os.ios);
+		console.log("iphone " + $.os.iphone);
+		if ($.os.iphone) {
+			imgType = "ios/";
+		} else {
+			imgType = "";
+		}
 	}
 };
+
+var imgType = "";
 function onDeviceReady() {
 	console.log('onDeviceReady');
 	// 注册回退按钮事件监听器
 
+	// $.ui.toggleNavMenu()
 	document.addEventListener("backbutton", onBackKeyDown, false);
+
 	//返回键
 }
 
@@ -73,23 +85,22 @@ function index_load_list() {
 	console.log('index_load_list');
 	showing_page = 0;
 
-	// $("#afui").get(0).className = "ios7";
+	$("#afui").get(0).className = "ios7";
 	// $("#afui").get(0).className = "android";
-	$.ui.toggleNavMenu()
 
 	var fandian_list = data_get_fandian_list();
 	if (fandian_list && fandian_list.length > 0) {
 		console.log('index_load_list list_page ' + fandian_list.length);
-		console.log('index_load_list list_page ' + JSON.stringify(fandian_list));
+		// console.log('index_load_list list_page ' + JSON.stringify(fandian_list));
 
 		var list_content = '<ul id="fandian_list" class="list">';
 		for (var i = 0; i < fandian_list.length; i++) {
-			console.log("fandian_list name " + fandian_list[i].name);
-			list_content += getFandianLi(fandian_list[i].fandian_id, fandian_list[i].name, fandian_list[i].like);
+			// console.log("fandian_list name " + fandian_list[i].name);
+			list_content += getFandianLi(fandian_list[i].fandian_id, fandian_list[i].name, fandian_list[i].address, fandian_list[i].like);
 		}
 		list_content += "</ul>";
 
-		console.log('list_content ' + list_content);
+		// console.log('list_content ' + list_content);
 		$('#main_c').html(list_content);
 
 	} else {
@@ -101,24 +112,24 @@ function index_load_list() {
 
 }
 
-function getFandianLi(id, name, like) {
+function getFandianLi(id, name, address, like) {
 
 	var li_content = "";
 	li_content += "<li class='fandian_li' onclick='show_detail(" + id + ")' >";
 	li_content += "<label class='fandian_line' >";
 	li_content += name;
 	li_content += "</label>";
-	li_content += "<img src='img/xin.png'/>";
-	li_content += "<img src='img/nzan.png'/>";
+	li_content += "<img class='fandian_xin' src='img/" + imgType + "xin.png'/>";
+	li_content += "<img class='fandian_zan' src='img/" + imgType + "nzan.png'/>";
 	li_content += "<span class='like_label' >";
-	li_content += "100";
+	li_content += like;
 	li_content += "</span>";
 	li_content += "<div>";
 	li_content += "<span class='address_label' >";
-	li_content += "地址:" + " 老TM远了";
+	li_content += "地址:" + address;
 	li_content += "</span>";
 	li_content += "</div>";
-	li_content += "<img class='arrow' src='img/arrow.png'/>";
+	li_content += "<img class='arrow' src='img/" + imgType + "arrow.png'/>";
 	li_content += "</li>"
 
 	return li_content;
@@ -142,7 +153,7 @@ function show_detail(fandian_id) {
 
 	var content = "";
 	for (var index = 0; index < menuObj.length; index++) {
-		content += getFoodLi(menuObj[index].name, menuObj[index].price);
+		content += getFoodLi(menuObj[index].name, menuObj[index].price, menuObj[index].like);
 	}
 
 	$('#food_list').html(content);
@@ -168,16 +179,12 @@ function getFoodLi(name, price, like) {
 	li_content += "<label class='food_line' >";
 	li_content += name;
 	li_content += "</label>";
-	li_content += "<img class='food_xin' src='img/xin.png'/>";
-	li_content += "<img class='food_zan' src='img/nzan.png'/>";
+	li_content += "<img class='food_xin' src='img/" + imgType + "xin.png'/>";
+	li_content += "<img class='food_zan' src='img/" + imgType + "nzan.png'/>";
 	li_content += "<span class='food_like_label' >";
-	li_content += "100";
+	li_content += like;
 	li_content += "</span>";
 	li_content += "<input type='button' class='price_btn' value='¥" + price + "' onclick='order(" + price + ")'/>";
-	// li_content += "<img class='price_btn' onclick='order(" + price + ")' src='img/nfen.png'/>";
-	// li_content += "<span class='price_label' >";
-	// li_content += "¥" + price;
-	// li_content += "</span>";
 	li_content += "</li>";
 	return li_content;
 }
@@ -197,7 +204,7 @@ function add_test() {
 		fandian_info_obj["name"] = "测试饭店" + i;
 		fandian_info_obj["cellphone"] = "12222333";
 		fandian_info_obj["address"] = "test";
-		fandian_info_obj["address"] = 122;
+		fandian_info_obj["like"] = 122;
 
 		var menuList = [];
 
