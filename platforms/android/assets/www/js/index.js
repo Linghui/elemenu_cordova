@@ -27,14 +27,24 @@ var app = {
 	// 'load', 'deviceready', 'offline', and 'online'.
 	bindEvents : function() {
 		document.addEventListener("deviceready", onDeviceReady, false);
+		console.log("android " + $.os.android);
+		console.log("ios " + $.os.ios);
+		console.log("iphone " + $.os.iphone);
+		if ($.os.iphone) {
+			imgType = "ios/";
+		} else {
+			imgType = "";
+		}
 	}
 };
+
+var imgType = "";
 function onDeviceReady() {
 	console.log('onDeviceReady');
 	// 注册回退按钮事件监听器
 
-	$.ui.toggleNavMenu()
 	document.addEventListener("backbutton", onBackKeyDown, false);
+
 	//返回键
 }
 
@@ -74,22 +84,23 @@ function index_load_list() {
 	console.log('index_load_list');
 	showing_page = 0;
 
+	$.ui.toggleNavMenu(false);
 	// $("#afui").get(0).className = "ios7";
-	$("#afui").get(0).className = "android";
-	
+	// $("#afui").get(0).className = "android";
+
 	var fandian_list = data_get_fandian_list();
 	if (fandian_list && fandian_list.length > 0) {
 		console.log('index_load_list list_page ' + fandian_list.length);
-		console.log('index_load_list list_page ' + JSON.stringify(fandian_list));
+		// console.log('index_load_list list_page ' + JSON.stringify(fandian_list));
 
 		var list_content = '<ul id="fandian_list" class="list">';
 		for (var i = 0; i < fandian_list.length; i++) {
-			console.log("fandian_list name " + fandian_list[i].name);
+			// console.log("fandian_list name " + fandian_list[i].name);
 			list_content += getFandianLi(fandian_list[i].fandian_id, fandian_list[i].name, fandian_list[i].address, fandian_list[i].like);
 		}
 		list_content += "</ul>";
 
-		console.log('list_content ' + list_content);
+		// console.log('list_content ' + list_content);
 		$('#main_c').html(list_content);
 
 	} else {
@@ -108,8 +119,8 @@ function getFandianLi(id, name, address, like) {
 	li_content += "<label class='fandian_line' >";
 	li_content += name;
 	li_content += "</label>";
-	li_content += "<img src='img/xin.png'/>";
-	li_content += "<img src='img/nzan.png'/>";
+	li_content += "<img class='fandian_xin' src='img/" + imgType + "xin.png'/>";
+	li_content += "<img class='fandian_zan' src='img/" + imgType + "nzan.png'/>";
 	li_content += "<span class='like_label' >";
 	li_content += like;
 	li_content += "</span>";
@@ -118,7 +129,7 @@ function getFandianLi(id, name, address, like) {
 	li_content += "地址:" + address;
 	li_content += "</span>";
 	li_content += "</div>";
-	li_content += "<img class='arrow' src='img/arrow.png'/>";
+	li_content += "<img class='arrow' src='img/" + imgType + "arrow.png'/>";
 	li_content += "</li>"
 
 	return li_content;
@@ -168,8 +179,8 @@ function getFoodLi(name, price, like) {
 	li_content += "<label class='food_line' >";
 	li_content += name;
 	li_content += "</label>";
-	li_content += "<img class='food_xin' src='img/xin.png'/>";
-	li_content += "<img class='food_zan' src='img/nzan.png'/>";
+	li_content += "<img class='food_xin' src='img/" + imgType + "xin.png'/>";
+	li_content += "<img class='food_zan' src='img/" + imgType + "nzan.png'/>";
 	li_content += "<span class='food_like_label' >";
 	li_content += like;
 	li_content += "</span>";
@@ -220,3 +231,6 @@ function back() {
 	$.ui.loadContent('main', false, false, 'slide');
 }
 
+function close_footer() {
+	$.ui.toggleNavMenu(false);
+}

@@ -54,8 +54,8 @@ under the License.
 	<body >
 
 		<div id="afui" >
-			<div id="main" class="panel" selected="true" data-load='index_load_list' data-header='main_header' data-footer='test_footer'>
-				<!-- <div id="main" class="panel" selected="true" data-load='index_load_list' data-header='main_header' > -->
+			<!-- <div id="main" class="panel" selected="true" data-load='index_load_list' data-header='main_header' data-footer='test_footer'> -->
+			<div id="main" class="panel" selected="true" data-load='index_load_list' data-header='main_header' >
 				<div id = "main_c">
 
 				</div>
@@ -66,11 +66,11 @@ under the License.
 				<a onclick="scan()" class="right_btn">扫描</a>
 			</header>
 
-			<footer id='test_footer'>
-				<a onclick="add_test()">添加测试数据</a>
-				<a onclick="data_clear()" href="#test">清除测试数据</a>
-				<a onclick="onBackKeyDown()">退出</a>
-			</footer>
+			<!-- <footer id='test_footer'>
+			<a onclick="add_test()">添加测试数据</a>
+			<a onclick="data_clear()" href="#test">清除测试数据</a>
+			<a onclick="onBackKeyDown()">退出</a>
+			</footer> -->
 
 			<div id="detail" class="panel" >
 				<header id='detail_header'>
@@ -88,7 +88,7 @@ under the License.
 				</footer>
 
 			</div>
-			<div id="about" class="panel" >
+			<div id="about" data-load='close_footer' class="panel" >
 
 				<header id='detail_header'>
 					<h1 id='fandian_name'>关于我们</h1>

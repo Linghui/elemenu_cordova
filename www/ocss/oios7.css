@@ -225,7 +225,7 @@
 
 #afui.ios7 .cellphone {
 	position: absolute;
-	top: 20px !important;
+	top: 18px !important;
 	right: 20px;
 	width: 150px !important;
 	background: #4CD60B !important;
@@ -239,4 +239,6 @@
 #afui.ios7 .cellphone.pressed {
 	border-radius: 8px !important;
 }
+
+
 

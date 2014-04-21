@@ -13,7 +13,7 @@ function success(resultArray) {
 		requestRrl += "?fandian_id=" + jsonObj.id;
 		console.log('requestRrl' + requestRrl);
 
-		$.ui.showMask();
+		$.ui.showMask("加载中... 请稍后");
 
 		$.ajax({
 			url : requestRrl,
@@ -57,7 +57,7 @@ function success(resultArray) {
 }
 
 function failure(error) {
-	alert("Failed: " + error);
+	
 }
 
 function scan() {
