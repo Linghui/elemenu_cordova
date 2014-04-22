@@ -122,7 +122,7 @@ function getFandianLi(id, name, address, like) {
 	li_content += "<img class='fandian_xin' src='img/" + imgType + "xin.png'/>";
 	li_content += "<img class='fandian_zan' src='img/" + imgType + "nzan.png'/>";
 	li_content += "<span class='like_label' >";
-	li_content += like;
+	li_content += get_fandian_like(id);
 	li_content += "</span>";
 	li_content += "<div>";
 	li_content += "<span class='address_label' >";
@@ -153,7 +153,7 @@ function show_detail(fandian_id) {
 
 	var content = "";
 	for (var index = 0; index < menuObj.length; index++) {
-		content += getFoodLi(menuObj[index].name, menuObj[index].price, menuObj[index].like);
+		content += getFoodLi(menuObj[index].food_id, menuObj[index].name, menuObj[index].price, menuObj[index].like);
 	}
 
 	$('#food_list').html(content);
@@ -182,7 +182,7 @@ function getFoodLi(name, price, like) {
 	li_content += "<img class='food_xin' src='img/" + imgType + "xin.png'/>";
 	li_content += "<img class='food_zan' src='img/" + imgType + "nzan.png'/>";
 	li_content += "<span class='food_like_label' >";
-	li_content += like;
+	li_content += get_food_like(id);
 	li_content += "</span>";
 	li_content += "<input type='button' class='price_btn' value='¥" + price + "' onclick='order(" + price + ")'/>";
 	li_content += "</li>";
@@ -252,9 +252,18 @@ function process(proto) {
 			}
 			break;
 		case 2:
+			if (proto.c == 1) {
+				update_fandian_like(proto.t);
+			} else {
+				alert("信息不存在");
+			}
 			break;
 		case 3:
-
+			if (proto.c == 1) {
+				update_food_like(proto.t);
+			} else {
+				alert("信息不存在");
+			}
 			break;
 		default:
 			break;

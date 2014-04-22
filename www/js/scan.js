@@ -24,6 +24,7 @@ function success(result) {
 					if (proto && proto.length >= 1) {
 
 						for (var index = 0; index < proto.length; index++) {
+							// in index.js
 							process(proto[index]);
 						}
 

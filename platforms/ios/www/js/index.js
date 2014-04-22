@@ -122,7 +122,7 @@ function getFandianLi(id, name, address, like) {
 	li_content += "<img class='fandian_xin' src='img/" + imgType + "xin.png'/>";
 	li_content += "<img class='fandian_zan' src='img/" + imgType + "nzan.png'/>";
 	li_content += "<span class='like_label' >";
-	li_content += like;
+	li_content += get_fandian_like(id);
 	li_content += "</span>";
 	li_content += "<div>";
 	li_content += "<span class='address_label' >";
@@ -252,9 +252,18 @@ function process(proto) {
 			}
 			break;
 		case 2:
+			if (proto.c == 1) {
+				update_fandian_like(proto.t);
+			} else {
+				alert("信息不存在");
+			}
 			break;
 		case 3:
-
+			if (proto.c == 1) {
+				update_food_like(proto.t);
+			} else {
+				alert("信息不存在");
+			}
 			break;
 		default:
 			break;

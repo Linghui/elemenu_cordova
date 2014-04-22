@@ -5,7 +5,7 @@ function data_insert(fandian_info) {
 
 	var fandian_list = data_get_fandian_list();
 
-    var addedBefore = false;
+	var addedBefore = false;
 	if (fandian_list) {
 
 		for (var i = 0; i < fandian_list.length; i++) {
@@ -68,5 +68,47 @@ function data_get_fandian_by_id(fandian_id) {
 	}
 
 	return null;
+}
+
+// like part start
+function update_fandian_like(like_str) {
+	var storage = window.localStorage;
+
+	var like_obj = JSON.parse(like_str);
+
+	var local_like_str = storage.getItem('fandian_like');
+
+	var local_like;
+	if (!local_like_str) {
+		local_like = {};
+	} else {
+		local_like = JSON.parse(local_like_str);
+	}
+
+	for (var key in like_obj) {
+		local_like[key] = like_obj[key];
+	}
+
+	storage.setItem('fandian_like', JSON.stringify(local_like));
+}
+
+function get_fandian_like(fandian_id) {
+	var storage = window.localStorage;
+
+	var local_like_str = storage.getItem('fandian_like');
+	if (local_like_str) {
+
+		var local_like = JSON.parse(local_like_str);
+		if (local_like[fandian_id]) {
+			return local_like[fandian_id]
+		} else {
+			return 0
+		}
+	}
+	return 0;
+}
+
+function update_food_like(like_str) {
+
 }
 

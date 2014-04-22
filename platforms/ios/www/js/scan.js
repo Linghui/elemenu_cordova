@@ -24,6 +24,7 @@ function success(result) {
 					if (proto && proto.length >= 1) {
 
 						for (var index = 0; index < proto.length; index++) {
+							// in index.js
 							process(proto[index]);
 						}
 
@@ -33,7 +34,7 @@ function success(result) {
 				$.ui.hideMask();
 			},
 			error : function(data) {
-				console.log('error' + data);
+				console.log('error' + JSON.stringify(data));
 				$.ui.hideMask();
 			}
 		});
