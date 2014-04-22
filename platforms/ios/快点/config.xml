@@ -22,8 +22,8 @@
     <feature name="Device">
         <param name="ios-package" value="CDVDevice" />
     </feature>
-    <feature name="ScanditSDK">
-        <param name="ios-package" value="ScanditSDK" />
+    <feature name="BarcodeScanner">
+        <param name="ios-package" value="CDVBarcodeScanner" />
     </feature>
     <name>快点</name>
     <description>

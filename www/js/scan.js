@@ -1,6 +1,6 @@
-function success(resultArray) {
+function success(result) {
 
-	var scanRes = resultArray[0];
+	var scanRes = result.text;
 
 	if (/^elemenu/.test(scanRes)) {
 
@@ -23,17 +23,8 @@ function success(resultArray) {
 					var proto = JSON.parse(data);
 					if (proto && proto.length >= 1) {
 
-						var fandian_response = proto[0];
-
-						if (fandian_response.c == 1) {
-
-							var fandian_info_str = fandian_response.t;
-							var fandian_info_obj = JSON.parse(fandian_info_str);
-							if (data_insert(fandian_info_obj)) {
-								index_load_list();
-							}
-						} else {
-							alert("信息不存在");
+						for (var index = 0; index < proto.length; index++) {
+							process(proto[index]);
 						}
 
 					}
@@ -42,7 +33,7 @@ function success(resultArray) {
 				$.ui.hideMask();
 			},
 			error : function(data) {
-				console.log('error' + data);
+				console.log('error' + JSON.stringify(data));
 				$.ui.hideMask();
 			}
 		});
@@ -70,11 +61,12 @@ function failure(error) {
 
 function scan() {
 	// See below for all available options.
-	cordova.exec(success, failure, "ScanditSDK", "scan", ["MzySjscTEeOXwyMUN6u+RbQVe522gOFWNWgtMC0c4nM", {
-		"beep" : true,
-		"qr" : true,
-		"2DScanning" : true
-	}]);
+	// cordova.exec(success, failure, "ScanditSDK", "scan", ["MzySjscTEeOXwyMUN6u+RbQVe522gOFWNWgtMC0c4nM", {
+	// "beep" : true,
+	// "qr" : true,
+	// "2DScanning" : true
+	// }]);
+	cordova.plugins.barcodeScanner.scan(success, failure);
 }
 
 function getHttpHead() {

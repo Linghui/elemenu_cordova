@@ -235,4 +235,30 @@ function close_footer() {
 	$.ui.toggleNavMenu(false);
 }
 
+function process(proto) {
+
+	switch(proto.p) {
+		case 1:
+
+			if (proto.c == 1) {
+
+				var fandian_info_str = proto.t;
+				var fandian_info_obj = JSON.parse(fandian_info_str);
+				if (data_insert(fandian_info_obj)) {
+					index_load_list();
+				}
+			} else {
+				alert("信息不存在");
+			}
+			break;
+		case 2:
+			break;
+		case 3:
+
+			break;
+		default:
+			break;
+	}
+
+}
 
