@@ -62,7 +62,7 @@ under the License.
 			</div>
 			<header id='main_header'>
 				<h1>我的菜单</h1>
-				<a onclick="" class="left_btn">编辑</a>
+				<!-- <a onclick="" class="left_btn">编辑</a> -->
 				<a onclick="scan()" class="right_btn">扫描</a>
 			</header>
 
@@ -84,19 +84,38 @@ under the License.
 					<img class='round' src="img/hongy.png" />
 					<span id='order_number' class="order_number">0</span>
 					<span id='total_price' class="total_price">¥0</span>
-					<a href="tel:10086" class="cellphone" id='phone'>10086</a>
+					<a onclick="send_order()" class="order_btn" >下单</a>
+				</footer>
+
+			</div>
+
+			<div id="order_page" class="panel" >
+				<header id='order_page_header'>
+					<a class="left_back_btn" onclick="back()">主页</a>
+					<h1 >订单</h1>
+				</header>
+				<ul id='order_list' class="list">
+
+				</ul>
+				<h2 id="totol_price">总金额</h2>
+
+				<footer >
+					<div style="width:100%; margin-left: auto; margin-right: auto">
+						<a href="tel:10086" class="cellphone" id='phone'>10086</a>
+					</div>
 				</footer>
 
 			</div>
 			<div id="about" data-load='close_footer' class="panel" >
 
-				<header id='detail_header'>
-					<h1 id='fandian_name'>关于我们</h1>
+				<header >
+					<h1>关于我们</h1>
 				</header>
 				<h2>非常感谢您对我们产品得关注</h2>
 				<h2>网站主页: www.kuaidot.com</h2>
 				<h2>BUG提交: kuaidot@163.com</h2>
 				<h2>联系我们: kuaidot@163.com</h2>
+				<h2>疯狂吐槽: kuaidot@163.com</h2>
 
 			</div>
 			<nav>

@@ -223,7 +223,7 @@
 	font-size: 20px;
 }
 
-#afui.ios7 .cellphone {
+#afui.ios7 .order_btn {
 	position: absolute;
 	top: 18px !important;
 	right: 20px;
@@ -236,8 +236,25 @@
 	border-top: 0px solid #000 !important;
 }
 
-#afui.ios7 .cellphone.pressed {
+#afui.ios7 .order_btn.pressed {
 	border-radius: 8px !important;
 	color: white;
 }
 
+#afui.ios7 .cellphone {
+	position: fixed;
+	bottom: 0px;
+	left: 10px;
+	text-align: center;
+	width: 300px !important;
+	background: #4CD60B !important;
+	border-radius: 8px;
+	height: 60px !important;
+	line-height: 60px;
+	font-size: 36px;
+	color: white;
+}
+
+#afui.ios7 .cellphone.pressed {
+	color: white;
+}

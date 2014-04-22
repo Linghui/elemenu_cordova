@@ -193,7 +193,7 @@
 	padding-left: 20px;
 }
 
-#afui.android .cellphone {
+#afui.android .order_btn {
 	position: absolute;
 	top: 16px !important;
 	right: 50px;
@@ -204,5 +204,28 @@
 	line-height: 40px;
 	font-size: 26px;
 	border-top: 0px solid #000 !important;
+	color: white;
 }
 
+#afui.android .order_btn.pressed {
+	color: white;
+}
+
+#afui.android .cellphone {
+	position: absolute;
+	left: 50%;
+	margin-left: -150px;
+	bottom: 100px;
+	text-align: center;
+	width: 300px !important;
+	background: #4CD60B !important;
+	border-radius: 8px;
+	height: 60px !important;
+	line-height: 60px;
+	font-size: 36px;
+	color: white;
+}
+
+#afui.android .cellphone.pressed {
+	color: white;
+}

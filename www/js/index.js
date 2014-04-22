@@ -44,6 +44,7 @@ function onDeviceReady() {
 	// 注册回退按钮事件监听器
 
 	document.addEventListener("backbutton", onBackKeyDown, false);
+	setTimeout("like_update()", 10000);
 	//返回键
 }
 
@@ -137,6 +138,8 @@ function getFandianLi(id, name, address, like) {
 
 var order_number = 0;
 var order_price = 0;
+var order_phone = 0;
+var order_queue = {};
 
 function show_detail(fandian_id) {
 	console.log("show_detail");
@@ -160,9 +163,11 @@ function show_detail(fandian_id) {
 
 	order_number = 0;
 	order_price = 0;
+	order_queue = {};
 	freshOrderBar();
-	$('#phone').attr('href', 'tel:' + fandian_info.cellphone);
-	$('#phone').html(fandian_info.cellphone);
+	// $('#phone').attr('href', 'tel:' + fandian_info.cellphone);
+	// $('#phone').html(fandian_info.cellphone);
+	order_phone = fandian_info.cellphone;
 
 	$.ui.loadContent('detail', false, false, 'slide');
 
@@ -173,7 +178,7 @@ function freshOrderBar() {
 	$('#total_price').html("¥" + order_price);
 }
 
-function getFoodLi(name, price, like) {
+function getFoodLi(id, name, price, like) {
 	var li_content = "";
 	li_content += "<li class='food_li'>";
 	li_content += "<label class='food_line' >";
@@ -184,14 +189,19 @@ function getFoodLi(name, price, like) {
 	li_content += "<span class='food_like_label' >";
 	li_content += get_food_like(id);
 	li_content += "</span>";
-	li_content += "<input type='button' class='price_btn' value='¥" + price + "' onclick='order(" + price + ")'/>";
+	li_content += "<input type='button' class='price_btn' value='¥" + price + "' onclick='order(" + price + ",\"" + name + "\")'/>";
 	li_content += "</li>";
 	return li_content;
 }
 
-function order(price) {
+function order(price, name) {
 	order_number++;
 	order_price += price;
+	if (order_queue[name]) {
+		order_queue[name]++;
+	} else {
+		order_queue[name] = 1;
+	}
 	freshOrderBar();
 }
 
@@ -235,7 +245,43 @@ function close_footer() {
 	$.ui.toggleNavMenu(false);
 }
 
+function like_update() {
+
+	var requestRrl = getHttpUrl("like");
+
+	var id_list = date_get_fandian_id_list();
+
+	requestRrl += "?fandian_id=" + id_list;
+
+	console.log('requestRrl ' + requestRrl);
+
+	$.ajax({
+		url : requestRrl,
+		success : function(data) {
+
+			if (data) {
+				var proto = JSON.parse(data);
+				if (proto && proto.length >= 1) {
+
+					for (var index = 0; index < proto.length; index++) {
+						// in index.js
+						process(proto[index]);
+					}
+
+				}
+			}
+
+			$.ui.hideMask();
+		},
+		error : function(data) {
+			console.log('error' + JSON.stringify(data));
+			$.ui.hideMask();
+		}
+	});
+}
+
 function process(proto) {
+	console.log('process ' + JSON.stringify(proto));
 
 	switch(proto.p) {
 		case 1:
@@ -252,6 +298,7 @@ function process(proto) {
 			}
 			break;
 		case 2:
+			console.log('process 1' + proto.t);
 			if (proto.c == 1) {
 				update_fandian_like(proto.t);
 			} else {
@@ -259,6 +306,7 @@ function process(proto) {
 			}
 			break;
 		case 3:
+			console.log('process 2' + proto.t);
 			if (proto.c == 1) {
 				update_food_like(proto.t);
 			} else {
@@ -271,3 +319,22 @@ function process(proto) {
 
 }
 
+function send_order() {
+	var content = "";
+	for (var key in order_queue) {
+		if (key) {
+
+			content += "<li>";
+			content += key;
+			content += " x " + order_queue[key];
+			content += "</li>";
+		}
+	}
+
+	$('#order_list').html(content);
+	$('#totol_price').html("总金额: ¥" + order_price);
+	$('#phone').attr("href", "tel:" + order_phone);
+	$('#phone').html(order_phone);
+
+	$.ui.loadContent('order_page', false, false, 'slide');
+}

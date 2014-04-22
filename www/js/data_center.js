@@ -48,7 +48,26 @@ function data_set_fandian_list(fandian_list_obj) {
 function data_get_fandian_list() {
 	var storage = window.localStorage;
 	var jsonStr = storage.getItem('fandian_list');
-	return JSON.parse(jsonStr);
+	if (jsonStr) {
+		return JSON.parse(jsonStr);
+	} else {
+		return false;
+	}
+
+}
+
+function date_get_fandian_id_list() {
+	var fandian_list = data_get_fandian_list();
+	if (!fandian_list) {
+		return false;
+	}
+
+	var id_list = "";
+	for (var i = 0; i < fandian_list.length; i++) {
+		id_list += fandian_list[i].fandian_id + ",";
+	}
+	
+	return id_list;
 }
 
 function data_clear() {
@@ -72,12 +91,13 @@ function data_get_fandian_by_id(fandian_id) {
 
 // like part start
 function update_fandian_like(like_str) {
+	console.log("update_fandian_like");
 	var storage = window.localStorage;
-
-	var like_obj = JSON.parse(like_str);
 
 	var local_like_str = storage.getItem('fandian_like');
 
+	var like_obj = JSON.parse(like_str);
+	
 	var local_like;
 	if (!local_like_str) {
 		local_like = {};
@@ -137,8 +157,8 @@ function get_food_like(food_id) {
 	if (local_like_str) {
 
 		var local_like = JSON.parse(local_like_str);
-		if (local_like[fandian_id]) {
-			return local_like[fandian_id]
+		if (local_like[food_id]) {
+			return local_like[food_id]
 		} else {
 			return 0
 		}
