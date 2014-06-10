@@ -62,12 +62,12 @@ function failure(error) {
 
 function scan() {
 	// See below for all available options.
-	// cordova.exec(success, failure, "ScanditSDK", "scan", ["MzySjscTEeOXwyMUN6u+RbQVe522gOFWNWgtMC0c4nM", {
-	// "beep" : true,
-	// "qr" : true,
-	// "2DScanning" : true
-	// }]);
-	cordova.plugins.barcodeScanner.scan(success, failure);
+	cordova.exec(success, failure, "ScanditSDK", "scan", ["MzySjscTEeOXwyMUN6u+RbQVe522gOFWNWgtMC0c4nM", {
+		"beep" : true,
+		"qr" : true,
+		"2DScanning" : true
+	}]);
+	// cordova.plugins.barcodeScanner.scan(success, failure);
 }
 
 function getHttpHead() {

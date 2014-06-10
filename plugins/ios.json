@@ -11,27 +11,48 @@
                         {
                             "xml": "<feature name=\"Device\"><param name=\"ios-package\" value=\"CDVDevice\" /></feature>",
                             "count": 1
-                        },
-                        {
-                            "xml": "<feature name=\"BarcodeScanner\"><param name=\"ios-package\" value=\"CDVBarcodeScanner\" /></feature>",
-                            "count": 1
                         }
                     ],
-                    "/widget": []
+                    "/widget": [
+                        {
+                            "xml": "<feature name=\"ScanditSDK\"><param name=\"ios-package\" value=\"ScanditSDK\" /></feature>",
+                            "count": 1
+                        }
+                    ]
                 }
             },
             "framework": {
                 "parents": {
-                    "AudioToolbox.framework": [],
+                    "AudioToolbox.framework": [
+                        {
+                            "xml": "false",
+                            "count": 1
+                        }
+                    ],
                     "AVFoundation.framework": [
                         {
                             "xml": "false",
                             "count": 1
                         }
                     ],
-                    "CoreGraphics.framework": [],
-                    "CoreLocation.framework": [],
-                    "CoreMedia.framework": [],
+                    "CoreGraphics.framework": [
+                        {
+                            "xml": "false",
+                            "count": 1
+                        }
+                    ],
+                    "CoreLocation.framework": [
+                        {
+                            "xml": "false",
+                            "count": 1
+                        }
+                    ],
+                    "CoreMedia.framework": [
+                        {
+                            "xml": "false",
+                            "count": 1
+                        }
+                    ],
                     "CoreVideo.framework": [
                         {
                             "xml": "false",
@@ -44,21 +65,31 @@
                             "count": 1
                         }
                     ],
-                    "SystemConfiguration.framework": [],
+                    "SystemConfiguration.framework": [
+                        {
+                            "xml": "false",
+                            "count": 1
+                        }
+                    ],
                     "libiconv.dylib": [
                         {
                             "xml": "false",
                             "count": 1
                         }
                     ],
-                    "libz.dylib": [],
-                    "libc++.dylib": [],
-                    "AssetsLibrary.framework": [
+                    "libz.dylib": [
                         {
                             "xml": "false",
                             "count": 1
                         }
-                    ]
+                    ],
+                    "libc++.dylib": [
+                        {
+                            "xml": "false",
+                            "count": 1
+                        }
+                    ],
+                    "AssetsLibrary.framework": []
                 }
             }
         }
@@ -67,7 +98,7 @@
         "org.apache.cordova.device": {
             "PACKAGE_NAME": "com.swings.elemenu"
         },
-        "com.phonegap.plugins.barcodescanner": {
+        "com.mirasense.scanditsdk.plugin": {
             "PACKAGE_NAME": "com.swings.elemenu"
         }
     },

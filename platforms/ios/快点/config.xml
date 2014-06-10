@@ -22,9 +22,6 @@
     <feature name="Device">
         <param name="ios-package" value="CDVDevice" />
     </feature>
-    <feature name="BarcodeScanner">
-        <param name="ios-package" value="CDVBarcodeScanner" />
-    </feature>
     <name>快点</name>
     <description>
         便捷生活，从快点开始。
@@ -34,4 +31,7 @@
     </author>
     <content src="index.html" />
     <access origin="*" />
+    <feature name="ScanditSDK">
+        <param name="ios-package" value="ScanditSDK" />
+    </feature>
 </widget>
