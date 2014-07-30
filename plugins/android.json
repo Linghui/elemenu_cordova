@@ -7,12 +7,6 @@
         "files": {
             "res/xml/config.xml": {
                 "parents": {
-                    "/*": [
-                        {
-                            "xml": "<feature name=\"Device\"><param name=\"android-package\" value=\"org.apache.cordova.device.Device\" /></feature>",
-                            "count": 1
-                        }
-                    ],
                     "/widget": [
                         {
                             "xml": "<feature name=\"ScanditSDK\"><param name=\"android-package\" value=\"com.mirasense.scanditsdk.plugin.ScanditSDK\" /></feature>",
@@ -42,23 +36,14 @@
                             "xml": "<activity android:name=\"com.mirasense.scanditsdk.plugin.ScanditSDKActivity\" />",
                             "count": 1
                         }
-                    ],
-                    "/*": []
-                }
-            },
-            "res/values/strings.xml": {
-                "parents": {
-                    "/resources": []
+                    ]
                 }
             }
         }
     },
     "installed_plugins": {
-        "org.apache.cordova.device": {
-            "PACKAGE_NAME": "com.swings.elemenu"
-        },
         "com.mirasense.scanditsdk.plugin": {
-            "PACKAGE_NAME": "com.swings.elemenu"
+            "PACKAGE_NAME": "com.swings.kuaidot"
         }
     },
     "dependent_plugins": {}
