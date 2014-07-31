@@ -15,71 +15,102 @@
 // we don't build for all platforms 
 // on each developer's box.
  
-var filestocopy = [{
-    "config/android/res/drawable/icon.png": 
-    "platforms/android/res/drawable/icon.png"
-}, {
-    "config/android/res/drawable-hdpi/icon.png": 
-    "platforms/android/res/drawable-hdpi/icon.png"
-}, {
-    "config/android/res/drawable-ldpi/icon.png": 
-    "platforms/android/res/drawable-ldpi/icon.png"
-}, {
-    "config/android/res/drawable-mdpi/icon.png": 
-    "platforms/android/res/drawable-mdpi/icon.png"
-}, {
-    "config/android/res/drawable-xhdpi/icon.png": 
-    "platforms/android/res/drawable-xhdpi/icon.png"
-}, {
-    "config/android/res/drawable/screen.png": 
-    "platforms/android/res/drawable/screen.png"
-}, {
-    "config/android/res/drawable-hdpi/screen.png": 
-    "platforms/android/res/drawable-hdpi/screen.png"
-}, {
-    "config/android/res/drawable-ldpi/screen.png": 
-    "platforms/android/res/drawable-ldpi/screen.png"
-}, {
-    "config/android/res/drawable-mdpi/screen.png": 
-    "platforms/android/res/drawable-mdpi/screen.png"
-}, {
-    "config/android/res/drawable-xhdpi/screen.png": 
-    "platforms/android/res/drawable-xhdpi/screen.png"
-}, {
-    "config/ios/Resources/icons/icon-72.png": 
-    "platforms/ios/快点/Resources/icons/icon-72.png"
-}, {
-    "config/ios/Resources/icons/icon.png": 
-    "platforms/ios/快点/Resources/icons/icon.png"
-}, {
-    "config/ios/Resources/icons/icon@2x.png": 
-    "platforms/ios//Resources/icons/icon@2x.png"
-}, {
-    "config/ios/Resources/icons/icon-72@2x.png": 
-    "platforms/ios/快点/Resources/icons/icon-72@2x.png"
-}, {
-    "config/ios/Resources/splash/Default@2x~iphone.png": 
-    "platforms/ios/快点/Resources/splash/Default@2x~iphone.png"
-}, {
-    "config/ios/Resources/splash/Default-568h@2x~iphone.png": 
-    "platforms/ios/快点/Resources/splash/Default-568h@2x~iphone.png"
-}, {
-    "config/ios/Resources/splash/Default~iphone.png":
-    "platforms/ios/快点/Resources/splash/Default~iphone.png"
-}, {
-    "config/ios/Resources/splash/Default-Portrait~ipad.png": 
-     "platforms/ios/快点/Resources/splash/Default-Portrait~ipad.png"
-}, {
-    "config/ios/Resources/splash/Default-Portrait@2x~ipad.png": 
-    "platforms/ios/快点/Resources/splash/Default-Portrait@2x~ipad.png"
-}, ];
- 
+var filestocopy = [
+{
+"config/android/res/drawable/96.png": "platforms/android/res/drawable/icon.png"
+},
+{
+"config/android/res/drawable/72.png": "platforms/android/res/drawable-hdpi/icon.png"
+},
+{
+"config/android/res/drawable/36.png": "platforms/android/res/drawable-ldpi/icon.png"
+},
+{
+"config/android/res/drawable/48.png": "platforms/android/res/drawable-mdpi/icon.png"
+},
+{
+"config/android/res/drawable/96.png": "platforms/android/res/drawable-xhdpi/icon.png"
+},
+{
+"config/android/res/drawable/screen.png": "platforms/android/res/drawable/screen.png"
+},
+{
+"config/android/res/drawable-hdpi/screen.png": "platforms/android/res/drawable-hdpi/screen.png"
+},
+{
+"config/android/res/drawable-ldpi/screen.png": "platforms/android/res/drawable-ldpi/screen.png"
+},
+{
+"config/android/res/drawable-mdpi/screen.png": "platforms/android/res/drawable-mdpi/screen.png"
+},
+{
+"config/android/res/drawable-xhdpi/screen.png": "platforms/android/res/drawable-xhdpi/screen.png"
+},
+{
+"config/ios/Resources/icons/72.png": "platforms/ios/快点/Resources/icons/icon-72.png"
+},
+{
+"config/ios/Resources/icons/57.png": "platforms/ios/快点/Resources/icons/icon.png"
+},
+{
+"config/ios/Resources/icons/114.png": "platforms/ios/快点/Resources/icons/icon@2x.png"
+},
+{
+"config/ios/Resources/icons/144.png": "platforms/ios/快点/Resources/icons/icon-72@2x.png"
+},
+{
+"config/ios/Resources/icons/40.png": "platforms/ios/快点/Resources/icons/icon-40.png"
+},
+{
+"config/ios/Resources/icons/80.png": "platforms/ios/快点/Resources/icons/icon-40@2x.png"
+},
+{
+"config/ios/Resources/icons/50.png": "platforms/ios/快点/Resources/icons/icon-50.png"
+},
+{
+"config/ios/Resources/icons/100.png": "platforms/ios/快点/Resources/icons/icon-50@2x.png"
+},
+{
+"config/ios/Resources/icons/60.png": "platforms/ios/快点/Resources/icons/icon-60.png"
+},
+{
+"config/ios/Resources/icons/120.png": "platforms/ios/快点/Resources/icons/icon-60@2x.png"
+},
+{
+"config/ios/Resources/icons/76.png": "platforms/ios/快点/Resources/icons/icon-76.png"
+},
+{
+"config/ios/Resources/icons/152.png": "platforms/ios/快点/Resources/icons/icon-76@2x.png"
+},
+{
+"config/ios/Resources/icons/29.png": "platforms/ios/快点/Resources/icons/icon-small.png"
+},
+{
+"config/ios/Resources/icons/58.png": "platforms/ios/快点/Resources/icons/icon-small@2x.png"
+},
+{
+"config/ios/Resources/splash/Default@2x~iphone.png": "platforms/ios/快点/Resources/splash/Default@2x~iphone.png"
+},
+{
+"config/ios/Resources/splash/Default-568h@2x~iphone.png": "platforms/ios/快点/Resources/splash/Default-568h@2x~iphone.png"
+},
+{
+"config/ios/Resources/splash/Default~iphone.png": "platforms/ios/快点/Resources/splash/Default~iphone.png"
+},
+{
+"config/ios/Resources/splash/Default-Portrait~ipad.png": "platforms/ios/快点/Resources/splash/Default-Portrait~ipad.png"
+},
+{
+"config/ios/Resources/splash/Default-Portrait@2x~ipad.png": "platforms/ios/快点/Resources/splash/Default-Portrait@2x~ipad.png"
+}
+];
+
 var fs = require('fs');
 var path = require('path');
- 
+
 // no need to configure below
 var rootdir = process.argv[2];
- 
+
 filestocopy.forEach(function(obj) {
     Object.keys(obj).forEach(function(key) {
         var val = obj[key];
